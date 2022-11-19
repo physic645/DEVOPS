@@ -1,0 +1,6 @@
+step 1: install docker
+step 2: install jenkins
+step 3: connect jenkins with git
+step 4: run code on jenkins
+step 5: export results
+step 6:
