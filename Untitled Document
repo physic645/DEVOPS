@@ -1,0 +1,12 @@
+sudo docker ps // list containers
+sudo docker ps -a  // previous stopped or exited containers
+
+sudo docker rm .... // remove a container
+
+sudo docker images // list images
+sudo docker rmi // remove images
+sudo docker version // version
+sudo docker network ls//
+
+d83e9956081c451baffd93cf1043e02f 
+ path /var/jenkins_home/secrets/initialAdminPassword

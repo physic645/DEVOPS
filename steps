@@ -1,0 +1,22 @@
+afou eixame kanei run to docker // docker run docker
+
+https://octopus.com/blog/jenkins-docker-install-guide
+
+egkatastsi jenkins sto docker me to octopus
+
+dn epaikse to vima 4 apo edw: https://www.jenkins.io/doc/book/installing/docker/
+
+apo cmd 
+docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk11
+
+Jenkins
+path :/var/jenkins_home/secrets/initialAdminPassword
+password d83e9956081c451baffd93cf1043e02f
+username: devopsaegean
+
+full name: giorgos aifantis
+e-mail: geoaif@hotmail.com
+
+Jenkins URL http://localhost:8080/
+
+
