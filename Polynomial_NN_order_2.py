@@ -1,11 +1,29 @@
 # Multi-class classification with Keras with k-fold cross validation
 # Base on BrownLee 
 
-import pandas
+
+
+import random
+import numpy             as np
+import tensorflow        as tf
+import tensorflow_addons as tfa
+
+import keras
+import keras.optimizers
 from keras.models                import Sequential
 from keras.layers                import Dense
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.utils                 import np_utils
+from keras.models                import Model
+from keras.layers                import Concatenate, Dense, LSTM, Input, concatenate, Layer
+#from keras.optimizers import Adagrad
+from tensorflow                  import keras
+from tensorflow.keras            import layers
+from keras.callbacks             import LambdaCallback
+from keras.utils.vis_utils       import plot_model # for visualization the model
+
+# import pandas
+
 from sklearn.model_selection     import cross_val_score
 from sklearn.model_selection     import KFold
 from sklearn.model_selection     import RepeatedKFold
@@ -13,24 +31,6 @@ from sklearn.preprocessing       import LabelEncoder
 from sklearn.pipeline            import Pipeline
 from sklearn.utils               import shuffle
 
-
-import numpy             as np
-import tensorflow        as tf
-import tensorflow_addons as tfa
-
-import random
-
-import keras
-import keras.optimizers
-
-from keras.models     import Model
-from keras.layers     import Concatenate, Dense, LSTM, Input, concatenate, Layer
-#from keras.optimizers import Adagrad
-from tensorflow       import keras
-from tensorflow.keras import layers
-from keras.callbacks  import LambdaCallback
-
-from keras.utils.vis_utils import plot_model # for visualization the model
 
 # Hermitte polynomials
 
