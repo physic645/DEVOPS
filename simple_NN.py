@@ -2,7 +2,7 @@
 
 print("first print line")
 
-#import numpy             as np
-#import tensorflow        as tf
+import numpy             as np
+import tensorflow        as tf
 
-#print("tensorflow ok")
+print("Τensorflow ok")
