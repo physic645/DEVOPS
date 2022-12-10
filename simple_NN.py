@@ -14,3 +14,4 @@ from tensorflow.keras            import layers
 from keras.callbacks             import LambdaCallback
 from keras.utils.vis_utils       import plot_model # for visualization the model
 
+from sklearn.model_selection     import cross_val_score
