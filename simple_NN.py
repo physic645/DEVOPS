@@ -36,5 +36,15 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 # fit the keras model on the dataset
 model.fit(X, y, epochs=15, batch_size=10)
 # evaluate the keras model
-_, accuracy = model.evaluate(X, y)
+# The evaluate() function will return a list with two values. 
+# The first will be the loss of the model on the dataset, and the second will be the accuracy of the model on the dataset
+loss, accuracy = model.evaluate(X, y)
 print('Accuracy: %.2f' % (accuracy*100))
+
+f = open("demo_results.txt", "w")
+f.write('Accuracy: %.2f\n' % (accuracy*100))
+f.write('Loss: %.2f\n' % (loss*100))
+f.close()
+
+
+
