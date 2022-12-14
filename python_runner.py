@@ -16,7 +16,7 @@ epochs = 10000
 for i in range(10,31,10):
     
     # Run the neural network with different first layer parameters
-    loss,accuracy = simple_NN(i)    
+    loss,accuracy = simple_NN(i,epochs)    
     f.write(f'{i} \t')
     f.write(f'{accuracy*100:.3f} \t')
     f.write(f'{loss*100:.3f} \t')
