@@ -16,7 +16,7 @@ from keras.utils.vis_utils       import plot_model # for visualization the model
 
 from sklearn.model_selection     import cross_val_score
 '''
-def simple_NN(nodes_first_layer):
+def simple_NN(nodes_first_layer,epochs):
     
     # first neural network with keras tutorial
     from numpy import loadtxt
@@ -45,7 +45,7 @@ def simple_NN(nodes_first_layer):
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     
     # fit the keras model on the dataset
-    model.fit(X, y, epochs=15, batch_size=10)
+    model.fit(X, y, epochs=epochs, batch_size=10)
     
     # evaluate the keras model
     # The evaluate() function will return a list with two values. 
