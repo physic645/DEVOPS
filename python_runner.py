@@ -8,7 +8,7 @@ from itertools import product
 start = time.time()
 
 # Define a list of parameters that we want to run
-nodes_of_first_layer = [10,20,30,40]
+nodes_of_first_layer = [10,20]
 epochs               = [1,10]
 
 f = open("demo_results.txt", "w")
