@@ -18,14 +18,71 @@ from sklearn.model_selection     import cross_val_score
 '''
 def simple_NN(nodes_first_layer,epochs):
     
-    # first neural network with keras tutorial
-    from numpy import loadtxt
+    # Libraries
+    from numpy                   import loadtxt
     from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import Dense
+    from tensorflow.keras.layers import Dense 
+    import kaggle 
+    import zipfile
+    import numpy as np
+    import pandas as pd
     
+    
+    # Replace the manual laoding procedure with one more automated ------------------------------------------
     
     # load the dataset
-    dataset = loadtxt('pima-indians-diabetes.csv', delimiter=',')
+    # dataset = loadtxt('pima-indians-diabetes.csv', delimiter=',')
+        
+    # Second authentication method via os
+    # Perform the authentication in the notebook directly by using the OS environment variables
+    # import os
+    # os.environ['KAGGLE_USERNAME'] = "<your-kaggle-username>"
+    # os.environ['KAGGLE_KEY'] = "<your-kaggle-api-key>"
+
+    # Connect and initialize the API
+    from kaggle.api.kaggle_api_extended import KaggleApi
+    api = KaggleApi()
+    api.authenticate()
+    
+    # Search a dataset via various criterions (maxsize in bytes)
+    datasets = kaggle.api.dataset_list(search="heart",max_size="10000000")
+    print(datasets)
+
+    # List all metadata of the first in list info using the vars() function
+    ds      = datasets[1]
+    ds_vars = vars(ds)
+    for var in ds_vars:
+        print(f"{var} = {ds_vars[var]}")
+        
+    # Download the zip file of the dataset in dataset_download folder (is created automatically)
+    # ds.ref is the path of the kaggle dataset 'noahgift/social-power-nba'
+    api.dataset_download_files(ds.ref,path='./dataset_download')
+    
+    # Unzip the zip 
+    
+    # -> the last part of the url has always the same format, so we use it to create the zip name.
+    zip_name = ds.url.split('/')[-1] 
+
+    with zipfile.ZipFile('./dataset_download/' + zip_name + '.zip','r') as zipref:
+        zipref.extractall('./dataset_download')
+        
+    
+    # List files that exist inside the zip 
+    files = kaggle.api.dataset_list_files(ds.ref).files
+    print(files)
+    
+    # Process the csv file
+    
+    dataframe = pd.read_csv(r'./dataset_download/' + str(files[0]))
+    dataset     = dataframe.values
+
+    # Delete the first row of the dataset - maybe are labels - if not we are losing one row 
+    dataset = np.delete(dataset,0,0)
+    input_shape = dataset.shape[1] - 1
+    X = dataset[:,0:input_shape]#.astype(float)
+    y = dataset[:,input_shape]
+        
+    # -----------------------------------  END OF DOWNLOAD AND UNZIP  -----------------------------------------
     
     # number of nodes of first layer
     
