@@ -36,8 +36,8 @@ def simple_NN(nodes_first_layer,epochs):
     # Second authentication method via os
     # Perform the authentication in the notebook directly by using the OS environment variables
     
-    os.environ['KAGGLE_USERNAME'] = "konstantinosfilippou"
-    os.environ['KAGGLE_KEY']      = "3514308d4ba9316c4f8b7bd9ecc245fb"
+    #os.environ['KAGGLE_USERNAME'] = "konstantinosfilippou"
+    #os.environ['KAGGLE_KEY']      = "3514308d4ba9316c4f8b7bd9ecc245fb"
 
     # Connect and initialize the API
     from kaggle.api.kaggle_api_extended import KaggleApi
@@ -45,7 +45,7 @@ def simple_NN(nodes_first_layer,epochs):
     api.authenticate()
     
     # Search a dataset via various criterions (maxsize in bytes)
-    datasets = kaggle.api.dataset_list(search="heart",max_size="10000000")
+    datasets = kaggle.api.dataset_list(search="stomach",max_size="10000000")
     print(datasets)
 
     # List all metadata of the first in list info using the vars() function

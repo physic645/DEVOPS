@@ -4,8 +4,12 @@
 from simple_NN import simple_NN
 import time
 from itertools import product
+import os
 
 start = time.time()
+
+os.environ['KAGGLE_USERNAME'] = "konstantinosfilippou"
+os.environ['KAGGLE_KEY']      = "3514308d4ba9316c4f8b7bd9ecc245fb"
 
 # Define a list of parameters that we want to run
 nodes_of_first_layer = [10,20]
