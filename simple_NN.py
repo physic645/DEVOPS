@@ -26,7 +26,7 @@ def simple_NN(nodes_first_layer,epochs):
     import zipfile
     import numpy as np
     import pandas as pd
-    
+    import os
     
     # Replace the manual laoding procedure with one more automated ------------------------------------------
     
@@ -35,9 +35,9 @@ def simple_NN(nodes_first_layer,epochs):
         
     # Second authentication method via os
     # Perform the authentication in the notebook directly by using the OS environment variables
-    # import os
-    # os.environ['KAGGLE_USERNAME'] = "<your-kaggle-username>"
-    # os.environ['KAGGLE_KEY'] = "<your-kaggle-api-key>"
+    
+    os.environ['KAGGLE_USERNAME'] = "konstantinosfilippou"
+    os.environ['KAGGLE_KEY']      = "3514308d4ba9316c4f8b7bd9ecc245fb"
 
     # Connect and initialize the API
     from kaggle.api.kaggle_api_extended import KaggleApi
