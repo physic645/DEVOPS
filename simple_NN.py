@@ -79,7 +79,7 @@ def simple_NN(nodes_first_layer,epochs):
     # Delete the first row of the dataset - maybe are labels - if not we are losing one row 
     dataset = np.delete(dataset,0,0)
     input_shape = dataset.shape[1] - 1
-    X = dataset[:,0:input_shape]#.astype(float)
+    X = dataset[:,0:input_shape].astype(float)
     y = dataset[:,input_shape]
         
     # -----------------------------------  END OF DOWNLOAD AND UNZIP  -----------------------------------------
