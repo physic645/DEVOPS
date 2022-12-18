@@ -8,6 +8,7 @@ import os
 
 start = time.time()
 
+# kaggle authentication
 os.environ['KAGGLE_USERNAME'] = "konstantinosfilippou"
 os.environ['KAGGLE_KEY']      = "3514308d4ba9316c4f8b7bd9ecc245fb"
 
