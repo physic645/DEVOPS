@@ -1,22 +1,30 @@
 # python runner script
 
-# f.write(f'i = {i} \n')
+# Libraries
+
 from simple_NN import simple_NN
-import time
+from p_kaggle import p_kaggle
+import p_kaggle
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense 
+
 from itertools import product
+
+import kaggle 
+import time
 import os
 
 start = time.time()
 
-# kaggle authentication
-os.environ['KAGGLE_USERNAME'] = "konstantinosfilippou"
-os.environ['KAGGLE_KEY']      = "3514308d4ba9316c4f8b7bd9ecc245fb"
-
 # Define a list of parameters that we want to run
-nodes_of_first_layer = [10,20]
-epochs               = [1,10]
+nodes_of_first_layer = [3]
+epochs               = [1]
+searchname           = "diabetes"
+
 
 f = open("demo_results.txt", "w")
+
 f.write('nodes1st-epoch \t')
 f.write('accuracy \t')
 f.write('loss \t')
@@ -32,7 +40,7 @@ for args in product(nodes_of_first_layer,epochs):
     
     # Run the neural network with different first layer and epochs parameters
     # We create all the possible combinations here 10,1 / 10,2 / 20,1 / 20,2
-    loss,accuracy = simple_NN(*args)        
+    loss,accuracy = simple_NN(*args,searchname)        
     f.write(f'[{args[i]}-{args[i+1]}] \t\t\t\t')
     f.write(f'{accuracy*100:.3f} \t\t')
     f.write(f'{loss*100:.3f} \t')
@@ -42,6 +50,9 @@ for args in product(nodes_of_first_layer,epochs):
     
 end = time.time()
 total = end-start
+
+
+#f.write(f'We trained the {title} dataset made by {creator} \n')
 f.write(f'This neural network training took {total:.3f} seconds')
 f.close()
     
