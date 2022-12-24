@@ -22,7 +22,7 @@ nodes_layer_1_scenario_1      = [128]
 epochs_scenario_1             = [100,200]
 
 nodes_layer_1_scenario_2      = [64]
-epochs_scenario_2             = [100.200]
+epochs_scenario_2             = [100,200]
 
 searchname           = "heart"
 
@@ -104,6 +104,10 @@ t_statistic, p_value = stats.ttest_ind(loss_all_scenario_1, loss_all_scenario_2)
 # Print results
 f.write(f'T-statistic: {t_statistic:.5f} \n')
 f.write(f'P-value    : {p_value:.5f}\n')
+
+
+
+
 
 end = time.time()
 total = end-start
