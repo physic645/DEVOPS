@@ -29,6 +29,9 @@ def simple_NN(nodes_first_layer,epochs,searchname):
     # define the keras model
     model = Sequential()
     model.add(Dense(nodes_first_layer, input_shape=(input_shape,), activation='relu'))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(32, activation='relu'))
+    model.add(Dense(16, activation='relu'))
     model.add(Dense(8, activation='relu'))
     model.add(Dense(1, activation='sigmoid'))
     
