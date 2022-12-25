@@ -106,9 +106,6 @@ f.write(f'T-statistic: {t_statistic:.5f} \n')
 f.write(f'P-value    : {p_value:.5f}\n')
 
 
-
-
-
 end = time.time()
 total = end-start
 
