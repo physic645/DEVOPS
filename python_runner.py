@@ -6,9 +6,6 @@ from simple_NN import simple_NN
 from p_kaggle import p_kaggle
 import p_kaggle
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense 
-
 from itertools import product
 
 import kaggle 
@@ -19,10 +16,10 @@ start = time.time()
 
 # Define a list of parameters that we want to run
 nodes_layer_1_scenario_1      = [128]
-epochs_scenario_1             = [1,2]
+epochs_scenario_1             = [1000000]
 
-nodes_layer_1_scenario_2      = [64]
-epochs_scenario_2             = [1,2]
+nodes_layer_1_scenario_2      = [128]
+epochs_scenario_2             = [100000]
 
 searchname           = "heart"
 
