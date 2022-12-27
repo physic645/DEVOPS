@@ -7,26 +7,15 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense 
 
  
-def simple_NN(nodes_first_layer,epochs,searchname):
+def simple_NN(nodes_first_layer,epochs,X,y,input_shape):
     
-    title = ""
-    creator = ""
-    # load the dataset
-    # dataset = loadtxt('pima-indians-diabetes.csv', delimiter=',')
-    
-    # Call the kaggle function
-    
-    X,y,input_shape = p_kaggle(searchname)
-        
+                
     # number of nodes of first layer
     
     nodes_first_layer = nodes_first_layer
     
-    # split into input (X) and output (y) variables
-    #X = dataset[:,0:8]
-    #y = dataset[:,8]
-    
-    # define the keras model
+        
+    # Define the keras model
     model = Sequential()
     model.add(Dense(nodes_first_layer, input_shape=(input_shape,), activation='relu'))
     model.add(Dense(64, activation='relu'))
@@ -43,7 +32,8 @@ def simple_NN(nodes_first_layer,epochs,searchname):
     
     # evaluate the keras model
     # The evaluate() function will return a list with two values. 
-    # The first will be the loss of the model on the dataset, and the second will be the accuracy of the model on the dataset
+    # The first will be the loss of the model on the dataset, 
+    # and the second will be the accuracy of the model on the dataset
     loss, accuracy = model.evaluate(X, y)
     print('Accuracy: %.2f' % (accuracy*100))
     

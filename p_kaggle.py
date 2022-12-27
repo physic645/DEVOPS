@@ -8,23 +8,19 @@ import kaggle
 import zipfile
 import numpy as np
 import pandas as pd
-import os
 from kaggle.api.kaggle_api_extended import KaggleApi
 from numpy                   import loadtxt
 
 
 def p_kaggle(searchname):
     
-    
-
     # Connect and initialize the API
     api = KaggleApi()
     api.authenticate()
-    
-     
+         
     # Search a dataset via various criterions (maxsize in bytes)
     datasets = kaggle.api.dataset_list(search=searchname,max_size="10000000")
-    print(datasets)
+    #print(datasets)
     
     # List all metadata of the first in list info using the vars() function
     ds      = datasets[0]
@@ -36,10 +32,8 @@ def p_kaggle(searchname):
     global title,creator
     title   = ds.title
     creator = ds.creatorName
-    
-    
-    
-    print(title,creator)
+      
+    #print(title,creator)
     
     # Download the zip file of the dataset in dataset_download folder (is created automatically)
     # ds.ref is the path of the kaggle dataset 'noahgift/social-power-nba'
@@ -55,7 +49,7 @@ def p_kaggle(searchname):
     
     # List files that exist inside the zip 
     files = kaggle.api.dataset_list_files(ds.ref).files
-    print(files)
+    #print(files)
     
     #dataset = loadtxt('pima-indians-diabetes.csv', delimiter=',')
     filename = './dataset_download/' + str(files[0])
@@ -67,7 +61,7 @@ def p_kaggle(searchname):
     dataset   = dataframe.values
 
     # Delete the first row of the dataset - maybe are labels - if not we are losing one row 
-    dataset = np.delete(dataset,0,0)
+    dataset     = np.delete(dataset,0,0)
     input_shape = dataset.shape[1] - 1    
     
     X = dataset[:,0:input_shape].astype(float)
@@ -75,7 +69,4 @@ def p_kaggle(searchname):
     
     return X,y,input_shape
     
-    
-    
-    
-    
+        
