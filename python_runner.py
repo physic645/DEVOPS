@@ -10,10 +10,10 @@ start = time.time()
 
 # Define a list of parameters that we want to run
 nodes_layer_1_scenario_1      = [128]
-epochs_scenario_1             = [1,2]
+epochs_scenario_1             = [10000]
 
 nodes_layer_1_scenario_2      = [64]
-epochs_scenario_2             = [1,2]
+epochs_scenario_2             = [10000]
 
 searchname                    = "heart"
 
