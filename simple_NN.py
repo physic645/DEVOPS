@@ -8,13 +8,10 @@ from tensorflow.keras.layers import Dense
 
  
 def simple_NN(nodes_first_layer,epochs,X,y,input_shape):
-    
-                
-    # number of nodes of first layer
-    
+                    
+    # number of nodes of first layer    
     nodes_first_layer = nodes_first_layer
-    
-        
+            
     # Define the keras model
     model = Sequential()
     model.add(Dense(nodes_first_layer, input_shape=(input_shape,), activation='relu'))
