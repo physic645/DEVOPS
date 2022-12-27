@@ -13,15 +13,19 @@ from simple_NN import simple_NN
 
 def run_NN(nodes_layer_1_scenario_i,epochs_scenario_i,X,y,input_shape):
     
-    loss_all_scenario_i = []
+    accuracy_all_scenario_i = []
+    loss_all_scenario_i     = []
+    
 
     for args in product(nodes_layer_1_scenario_i,epochs_scenario_i):
                
         loss,accuracy = simple_NN(*args,X,y,input_shape)   
         
+        accuracy_all_scenario_i.append(accuracy)
         loss_all_scenario_i.append(loss)
         
+        print(accuracy_all_scenario_i)
         print(loss_all_scenario_i)
             
     # Return the list
-    return loss_all_scenario_i       
+    return accuracy_all_scenario_i,loss_all_scenario_i       
