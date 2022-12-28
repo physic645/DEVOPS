@@ -6,7 +6,7 @@ from p_kaggle import p_kaggle
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense 
 import neptune.new as neptune
-from neptune.new import keras
+from neptune.new.integrations.tensorflow_keras import NeptuneCallback
  
 def simple_NN(nodes_first_layer,epochs,X,y,input_shape):
                     
@@ -27,7 +27,7 @@ def simple_NN(nodes_first_layer,epochs,X,y,input_shape):
     
     
     # Use Neptune's Keras callback to log the metrics and artifacts
-    neptune_callback = keras.NeptuneMonitor()
+    neptune_callback = NeptuneCallback(run=run)
     
     
     # fit the keras model on the dataset
