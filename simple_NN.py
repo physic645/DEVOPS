@@ -10,6 +10,12 @@ from neptune.new.integrations.tensorflow_keras import NeptuneCallback
  
 def simple_NN(nodes_first_layer,epochs,X,y,input_shape):
                     
+    run = neptune.init(
+        project   ='k15redd22/MLOps',
+        api_token ="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI0NTA1M2VmOC0xZmUyLTQ4YzYtODdhYy0yNjRhY2E0NGM3YTAifQ==",
+    )
+    
+
     # number of nodes of first layer    
     nodes_first_layer = nodes_first_layer
             
