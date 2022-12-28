@@ -5,7 +5,7 @@
 from p_kaggle import p_kaggle
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense 
-
+import neptune.new as neptune
  
 def simple_NN(nodes_first_layer,epochs,X,y,input_shape):
                     
@@ -24,8 +24,13 @@ def simple_NN(nodes_first_layer,epochs,X,y,input_shape):
     # compile the keras model
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     
+    
+    # Use Neptune's Keras callback to log the metrics and artifacts
+    neptune_callback = neptune.keras.NeptuneMonitor()
+    
+    
     # fit the keras model on the dataset
-    model.fit(X, y, epochs=epochs, batch_size=10)
+    model.fit(X, y, epochs=epochs, batch_size=10,callbacks=[neptune_callback])
     
     # evaluate the keras model
     # The evaluate() function will return a list with two values. 
