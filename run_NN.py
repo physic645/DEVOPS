@@ -11,7 +11,7 @@ from simple_NN import simple_NN
 
 
 
-def run_NN(nodes_layer_1_scenario_i,epochs_scenario_i,X,y,input_shape):
+def run_NN(nodes_layer_1_scenario_i,epochs_scenario_i,X,y,input_shape,run_nep_ai):
     
     accuracy_all_scenario_i = []
     loss_all_scenario_i     = []
@@ -19,7 +19,7 @@ def run_NN(nodes_layer_1_scenario_i,epochs_scenario_i,X,y,input_shape):
 
     for args in product(nodes_layer_1_scenario_i,epochs_scenario_i):
                
-        loss,accuracy = simple_NN(*args,X,y,input_shape)   
+        loss,accuracy = simple_NN(*args,X,y,input_shape,run_nep_ai)   
         
         accuracy_all_scenario_i.append(accuracy)
         loss_all_scenario_i.append(loss)
