@@ -11,12 +11,6 @@ import neptune.new as neptune
 start = time.time()
 
 
-run = neptune.init(
-    project   ='k15redd22/MLOps',
-    api_token ="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI0NTA1M2VmOC0xZmUyLTQ4YzYtODdhYy0yNjRhY2E0NGM3YTAifQ==",
-)
-
-
 # Define a list of parameters that we want to run
 nodes_layer_1_scenario_1      = [64,128]
 epochs_scenario_1             = [1]
