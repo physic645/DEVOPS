@@ -10,22 +10,26 @@ import neptune.new as neptune
 
 start = time.time()
 
+run_nep_ai = neptune.init(
+        project   ='k15redd22/MLOps',
+        api_token ="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI0NTA1M2VmOC0xZmUyLTQ4YzYtODdhYy0yNjRhY2E0NGM3YTAifQ==",
+    )
 
 # Define a list of parameters that we want to run
 nodes_layer_1_scenario_1      = [64,128]
-epochs_scenario_1             = [100]
+epochs_scenario_1             = [10]
 
 nodes_layer_1_scenario_2      = [64,128]
-epochs_scenario_2             = [1000]
+epochs_scenario_2             = [100]
 
 searchname                    = "heart"
 
 # Call p_kaggle and download the working dataset once
 X,y,input_shape = p_kaggle(searchname)
 
-accuracy_1,loss_all_scenario_1 = run_NN(nodes_layer_1_scenario_1,epochs_scenario_1,X,y,input_shape)
+accuracy_1,loss_all_scenario_1 = run_NN(nodes_layer_1_scenario_1,epochs_scenario_1,X,y,input_shape,run_nep_ai)
 
-accuracy_2,loss_all_scenario_2 = run_NN(nodes_layer_1_scenario_2,epochs_scenario_2,X,y,input_shape)
+accuracy_2,loss_all_scenario_2 = run_NN(nodes_layer_1_scenario_2,epochs_scenario_2,X,y,input_shape,run_nep_ai)
 
 # Perform paired t-test for losses for the two scenarios
 t_statistic, p_value = stats.ttest_rel(loss_all_scenario_1, loss_all_scenario_2)
