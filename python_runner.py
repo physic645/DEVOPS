@@ -6,6 +6,7 @@ from run_NN   import run_NN
 from scipy    import stats
 import time
 import neptune.new as neptune
+from neptune import keras
 
 start = time.time()
 
