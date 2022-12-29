@@ -20,8 +20,8 @@ def simple_NN(nodes_first_layer,epochs,X,y,input_shape,run_nep_ai):
     model.add(Dense(64, activation='relu'))
     model.add(Dense(32, activation='relu'))
     model.add(Dense(16, activation='relu'))
-    model.add(Dense(8, activation='relu'))
-    model.add(Dense(1, activation='sigmoid'))
+    model.add(Dense(8,  activation='relu'))
+    model.add(Dense(1,  activation='sigmoid'))
     
     # compile the keras model
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
