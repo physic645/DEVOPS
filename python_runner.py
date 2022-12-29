@@ -17,10 +17,10 @@ run_nep_ai = neptune.init(
 
 # Define a list of parameters that we want to run
 nodes_layer_1_scenario_1      = [64,128]
-epochs_scenario_1             = [100]
+epochs_scenario_1             = [1]
 
 nodes_layer_1_scenario_2      = [64,128]
-epochs_scenario_2             = [100]
+epochs_scenario_2             = [10]
 
 searchname                    = "diabetes"
 
@@ -35,8 +35,8 @@ accuracy_2,loss_all_scenario_2 = run_NN(nodes_layer_1_scenario_2,epochs_scenario
 t_statistic, p_value = stats.ttest_rel(loss_all_scenario_1, loss_all_scenario_2)
 
 # Print results
-print(f'T-statistic: {t_statistic:.5f} \n')
-print(f'P-value    : {p_value:.5f}     \n')
+print(f'T-statistic for loss: {t_statistic:.5f} \n')
+print(f'P-value    for loss : {p_value:.5f}     \n')
 
 
 # Stops the connection to Neptune and synchronizes all data.
@@ -47,5 +47,5 @@ total = end-start
 
 import p_kaggle
 
-print(f'We trained the {p_kaggle.title} dataset made by {p_kaggle.creator} \n')
+print(f'\n We trained the {p_kaggle.title} dataset made by {p_kaggle.creator} \n')
 print(f'This neural network training took {total:.3f} seconds')
