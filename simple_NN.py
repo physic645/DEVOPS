@@ -34,6 +34,8 @@ def simple_NN(nodes_first_layer,epochs,X,y,input_shape,run_nep_ai):
     # fit the keras model on the dataset
     model.fit(X, y, epochs=epochs, batch_size=10,callbacks=[neptune_callback])
     
+    
+    
     # evaluate the keras model
     # The evaluate() function will return a list with two values. 
     # The first will be the loss of the model on the dataset, 
