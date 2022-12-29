@@ -17,7 +17,7 @@ run_nep_ai = neptune.init(
 
 # Define a list of parameters that we want to run
 nodes_layer_1_scenario_1      = [64,128]
-epochs_scenario_1             = [100
+epochs_scenario_1             = [100]
 
 nodes_layer_1_scenario_2      = [64,128]
 epochs_scenario_2             = [100]
