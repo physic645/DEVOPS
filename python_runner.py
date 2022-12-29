@@ -20,7 +20,7 @@ nodes_layer_1_scenario_1      = [64,128]
 epochs_scenario_1             = [1]
 
 nodes_layer_1_scenario_2      = [64,128]
-epochs_scenario_2             = [1]
+epochs_scenario_2             = [10]
 
 searchname                    = "diabetes"
 
@@ -37,6 +37,10 @@ t_statistic, p_value = stats.ttest_rel(loss_all_scenario_1, loss_all_scenario_2)
 # Print results
 print(f'T-statistic: {t_statistic:.5f} \n')
 print(f'P-value    : {p_value:.5f}     \n')
+
+
+# Stops the connection to Neptune and synchronizes all data.
+run_nep_ai.stop()
 
 end = time.time()
 total = end-start
