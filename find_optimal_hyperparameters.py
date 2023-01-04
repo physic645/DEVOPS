@@ -156,6 +156,6 @@ def find_optimal_hyperparameters(X,y,input_shape):
     
     val_acc_per_epoch = history.history['val_accuracy']
     best_epoch        = val_acc_per_epoch.index(max(val_acc_per_epoch)) + 1
-    #print('Best epoch: %d' % (best_epoch,))
+    print('Best epoch: %d' % (best_epoch,))
     
     return tuner1,best_hps,best_epoch    

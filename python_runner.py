@@ -18,6 +18,9 @@ run_nep_ai = neptune.init(
     )
 '''
 
+# ----------------------------------------------------------------------------
+# ---- An automated machine learning pipeline of three steps -----------------
+
 # Step:1
 # Connect_with_kaggle and download the working dataset once
 
@@ -33,10 +36,22 @@ X, X_test, y, y_test = train_test_split(X, y, test_size=0.20)
 
 tuner1,best_hps,best_epoch = find_optimal_hyperparameters(X,y,input_shape)
 
+#print best hyperparamaters with 
+# print(best_hps.get_config())  or 
+# tuner.results_summary() --> shows the 10 best trials
+# print(best_hps.values)
+
+# Show the 7 best trials 
+# print(f'\n{tuner1.results_summary(7)}\n')
+
 # Step:3
 # Train the hypermodel with optimal hyperparamters and evaluate on test data
 
 train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
+
+# ****************************************************************************
+# ****************************************************************************
+# ****************************************************************************
 
 
 # Stops the connection to Neptune and synchronizes all data.
