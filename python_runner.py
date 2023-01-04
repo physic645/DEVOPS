@@ -34,12 +34,9 @@ X, X_test, y, y_test = train_test_split(X, y, test_size=0.20)
 tuner1,best_hps,best_epoch = find_optimal_hyperparameters(X,y,input_shape)
 
 # Step:3
-# Train the hypermodel with optimal hyperparamters
+# Train the hypermodel with optimal hyperparamters and evaluate on test data
 
 train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
-
-
-
 
 
 # Stops the connection to Neptune and synchronizes all data.

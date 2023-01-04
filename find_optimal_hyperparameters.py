@@ -3,7 +3,7 @@
 import tensorflow  as tf
 import keras_tuner as kt
 import pandas      as pd
-import neptunecontrib.monitoring.kerastuner as npt_utils
+#import neptunecontrib.monitoring.kerastuner as npt_utils
 import neptune.new as neptune
 
 
