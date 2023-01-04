@@ -11,8 +11,8 @@ import neptune.new as neptune
 
 from keras import backend as K
 from keras.layers.core import Activation
-from keras.utils.generic_utils import get_custom_objects
-
+#from keras.utils.generic_utils import get_custom_objects
+from tensorflow.keras.utils import get_custom_objects
 
 def find_optimal_hyperparameters(X,y,input_shape):
 
