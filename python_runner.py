@@ -98,6 +98,9 @@ print(f'Statistics for accuracy t = {t_stat_acc}, p_value = {p_value_acc}\n')
 # ****************************************************************************
 # ****************************************************************************
 
+print(f'Best_model is {best_hps.values}\n')
+
+print(f'Best model without polynomial is {scenario_without_pol}\n')
 
 # Stops the connection to Neptune and synchronizes all data.
 #run.stop()
