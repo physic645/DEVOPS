@@ -15,6 +15,6 @@ def train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_t
     eval_result = hypermodel.evaluate(X_test, y_test)
     print("[test loss, test accuracy]:", eval_result)
     
-    
+    return eval_result[0], eval_result[1]
 
 

@@ -5,14 +5,17 @@ from connect_with_kaggle                import connect_with_kaggle
 from find_optimal_hyperparameters       import find_optimal_hyperparameters
 from train_with_optimal_hyperparameters import train_with_optimal_hyperparameters
 from scipy                              import stats
+
+from sklearn.model_selection            import train_test_split # split a dataset into train and test sets
+
 import neptune.new as neptune
 import time
-from sklearn.model_selection            import train_test_split # split a dataset into train and test sets
+
 start = time.time()
 
 '''
 # Initiate connection with Neptune AI for monitoring
-run_nep_ai = neptune.init(
+run = neptune.init_run(
         project   ='k15redd22/MLOps',
         api_token ="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI0NTA1M2VmOC0xZmUyLTQ4YzYtODdhYy0yNjRhY2E0NGM3YTAifQ==",
     )
@@ -28,13 +31,13 @@ searchname      = "diabetes"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # split into train test sets
-X, X_test, y, y_test = train_test_split(X, y, test_size=0.20)
+X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
 
 
 # Step:2
 # Find the optimal hyperparameter for the speficic dataset
 
-tuner1,best_hps,best_epoch = find_optimal_hyperparameters(X,y,input_shape)
+tuner1,best_hps,best_epoch,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape)
 
 #print best hyperparamaters with 
 # print(best_hps.get_config())  or 
@@ -44,10 +47,52 @@ tuner1,best_hps,best_epoch = find_optimal_hyperparameters(X,y,input_shape)
 # Show the 7 best trials 
 # print(f'\n{tuner1.results_summary(7)}\n')
 
+
+
 # Step:3
 # Train the hypermodel with optimal hyperparamters and evaluate on test data
 
-train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
+loss_list_1     = []
+accuracy_list_1 = []
+
+loss_list_2     = []
+accuracy_list_2 = []
+
+
+loss_list_3     = []
+accuracy_list_3 = []
+
+
+# Loop 50 times for statistics / 50 values for loss and accuracy
+
+for i in range(1000):
+    loss, accuracy = train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
+    loss_list_1.append(loss)
+    accuracy_list_1.append(accuracy)
+
+'''
+for i in range(10):
+    loss, accuracy = train_with_optimal_hyperparameters(tuner1,second_best,best_epoch,X,y,X_test,y_test)
+    loss_list_2.append(loss)
+    accuracy_list_2.append(accuracy)    
+'''
+
+# loss and accuracy for a model that does not contain polynomial
+
+for i in range(1000):
+    loss, accuracy = train_with_optimal_hyperparameters(tuner1,scenario_without_pol,best_epoch,X,y,X_test,y_test)
+    loss_list_3.append(loss)
+    accuracy_list_3.append(accuracy)
+
+# Step 4:
+# Perform paired t-test for losses for the two scenarios
+t_stat_loss, p_value_loss = stats.ttest_rel(loss_list_1, loss_list_3)
+
+print(f'Statistics for losses: t = {t_stat_loss}, p_value = {p_value_loss}\n')
+
+t_stat_acc, p_value_acc = stats.ttest_rel(accuracy_list_1, accuracy_list_3)
+print(f'Statistics for accuracy t = {t_stat_acc}, p_value = {p_value_acc}\n')
+    
 
 # ****************************************************************************
 # ****************************************************************************
@@ -55,7 +100,7 @@ train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
 
 
 # Stops the connection to Neptune and synchronizes all data.
-# run_nep_ai.stop()
+#run.stop()
 
 end = time.time()
 total = end-start

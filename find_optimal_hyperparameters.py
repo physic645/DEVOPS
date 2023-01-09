@@ -14,6 +14,15 @@ from keras.layers.core import Activation
 #from keras.utils.generic_utils import get_custom_objects
 from tensorflow.keras.utils import get_custom_objects
 
+'''
+# Initiate connection with Neptune AI for monitoring
+run = neptune.init_run(
+        project   ='k15redd22/MLOps',
+        api_token ="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI0NTA1M2VmOC0xZmUyLTQ4YzYtODdhYy0yNjRhY2E0NGM3YTAifQ==",
+    )
+'''
+
+
 def find_optimal_hyperparameters(X,y,input_shape):
 
     ### Note! You cannot use random python functions, 
@@ -57,7 +66,7 @@ def find_optimal_hyperparameters(X,y,input_shape):
       
       for i in range(hp.Int('layers',2,5)):
           model.add(tf.keras.layers.Dense(
-              units      = hp.Int('units_'  + str(i), 50, 100, step=10),
+              units      = hp.Int('units_'  + str(i), 20, 100, step=5),
               activation = hp.Choice('act_' + str(i), ['relu', 'tanh', 'h_2nd'])))
                         
     
@@ -97,7 +106,7 @@ def find_optimal_hyperparameters(X,y,input_shape):
     tuner1 = kt.BayesianOptimization(
                model_builder,
                objective          = 'val_accuracy',
-               max_trials         = 10, # --> max candidates to test
+               max_trials         = 1000, # --> max candidates to test
                num_initial_points = 2,
                alpha              = 0.001,
                beta               = 2.6,
@@ -128,13 +137,23 @@ def find_optimal_hyperparameters(X,y,input_shape):
     
     stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3)
     
-    tuner1.search(X, y, epochs=5, validation_split=0.2, callbacks=[stop_early]) #validation_data=(x_test, y_test))
+    tuner1.search(X, y, epochs=100, validation_split=0.2, callbacks=[stop_early]) #validation_data=(x_test, y_test))
     
     
     # Get the optimal hyperparameters 
-    best_hps = tuner1.get_best_hyperparameters(num_trials=5)[0]
+    best_hps    = tuner1.get_best_hyperparameters(num_trials=1000)[0]
+    second_best =  tuner1.get_best_hyperparameters(num_trials=1000)[1]
     
-    
+    for i in range(1000):
+        
+        a = tuner1.get_best_hyperparameters(num_trials=1000)[i]
+            
+        # Dictionary
+        v = a.values
+        
+        if 'h_2nd' not in v.values():
+            scenario_without_pol = tuner1.get_best_hyperparameters(num_trials=5)[i]
+            break
     
     '''
     print(f"""
@@ -152,10 +171,15 @@ def find_optimal_hyperparameters(X,y,input_shape):
     # with the hyperparameters obtained from the search.
     model   = tuner1.hypermodel.build(best_hps)
     
-    history = model.fit(X, y, epochs=50, validation_split=0.2,verbose=2)#,callbacks=[stop_early])
+    history = model.fit(X, y, epochs=1000, validation_split=0.2,verbose=2)#,callbacks=[stop_early])
     
     val_acc_per_epoch = history.history['val_accuracy']
+    
+    #run['validation_accuracy_per_epoch'].log(val_acc)
+    
     best_epoch        = val_acc_per_epoch.index(max(val_acc_per_epoch)) + 1
     print('Best epoch: %d' % (best_epoch,))
     
-    return tuner1,best_hps,best_epoch    
+    #run.stop()
+    
+    return tuner1,best_hps,best_epoch,second_best,scenario_without_pol
