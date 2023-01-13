@@ -46,7 +46,3 @@ def simple_NN(nodes_first_layer,epochs,X,y,input_shape,run_nep_ai):
     return (loss,accuracy)
     
     
-
-
-
-

@@ -24,8 +24,8 @@ def run_NN(nodes_layer_1_scenario_i,epochs_scenario_i,X,y,input_shape,run_nep_ai
         accuracy_all_scenario_i.append(accuracy)
         loss_all_scenario_i.append(loss)
         
-        print(accuracy_all_scenario_i)
-        print(loss_all_scenario_i)
+        print(f'Accuracy list -> {accuracy_all_scenario_i}\n')
+        print(f'Loss list -> {loss_all_scenario_i} \n')
             
     # Return the list
     return accuracy_all_scenario_i,loss_all_scenario_i       
