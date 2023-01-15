@@ -57,10 +57,15 @@ print(f'The hermittes 2nd order appears {i} in 100 times as a proposed activatio
 # print(f'\n{tuner1.results_summary(7)}\n')
 
 
-'''
+
+
 # Step:3
 # Train the hypermodel with optimal hyperparamters and evaluate on test data
 
+loss, accuracy = train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
+
+
+'''
 loss_list_1     = []
 accuracy_list_1 = []
 

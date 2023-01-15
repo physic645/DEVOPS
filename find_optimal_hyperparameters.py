@@ -73,7 +73,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
               )
     '''
     
-    max_trials = 100
+    max_trials = 50
     epochs     = 100
     
     # Using Bayesian optiization
@@ -111,7 +111,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     
     stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3)
     
-    tuner1.search(X, y, epochs=epochs, validation_data=(X_test, y_test),callbacks=[stop_early])
+    tuner1.search(X, y, epochs=epochs, verbose=0,validation_data=(X_test, y_test),callbacks=[stop_early])
     
     
     # Get the optimal hyperparameters 
@@ -148,9 +148,9 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     
     history = model.fit(X, y, epochs=epochs, 
                         #validation_split=0.2,
-                        verbose=2 ,                        
-                        validation_data=(X_test, y_test),
-                        callbacks=[stop_early],
+                        verbose         = 0 ,                        
+                        validation_data = (X_test, y_test),
+                        callbacks       = [stop_early],
                         )
     
     val_acc_per_epoch = history.history['val_accuracy']

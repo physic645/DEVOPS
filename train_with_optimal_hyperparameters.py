@@ -7,13 +7,13 @@ def train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_t
     hypermodel = tuner1.hypermodel.build(best_hps)
     
     # Retrain the model
-    hypermodel.fit(X,y, epochs=best_epoch, validation_data=(X_test, y_test))
+    hypermodel.fit(X,y, epochs=best_epoch, verbose = 0, validation_data=(X_test, y_test))
     
     
     # Evaluate the hypermodel on the test data.
     
     eval_result = hypermodel.evaluate(X_test, y_test)
-    print("[test loss, test accuracy]:", eval_result)
+    print("[Test loss, Test accuracy]:", eval_result)
     
     return eval_result[0], eval_result[1]
 
