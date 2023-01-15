@@ -47,7 +47,8 @@ for i in range(100):
     if 'h_2nd' in b.values():
         i = i + 1;
 
-print(f'The hermittes 2nd order appears {i} in 100 times as a proposed activation.')
+print(f'The hermittes 2nd order appears {i} in 100 times as a proposed activation. \n')
+print(f'The proposed NN is: {b} \n')
 #print best hyperparamaters with 
 # print(best_hps.get_config())  or 
 # tuner.results_summary() --> shows the 10 best trials
