@@ -46,7 +46,9 @@ for i in range(100):
     
     if 'h_2nd' in b.values():
         i = i + 1;
-
+        
+    print(f'We are in the {i} iteration \n')
+    
 print(f'The hermittes 2nd order appears {i} in 100 times as a proposed activation. \n')
 print(f'The proposed NN is: {b} \n')
 #print best hyperparamaters with 
