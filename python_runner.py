@@ -54,7 +54,8 @@ for i in range(times):
     
     
 print(f'The hermittes 2nd order appears {i} in {times} times as a proposed activation. \n')
-print(f'The proposed NN is: {b} \n')
+print(f'The proposed NN is: {b} \n\n')
+print(f'Best model without polynomial is {scenario_without_pol.values}\n')
 #print best hyperparamaters with 
 # print(best_hps.get_config())  or 
 # tuner.results_summary() --> shows the 10 best trials
