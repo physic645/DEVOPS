@@ -38,8 +38,9 @@ X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
 # Step:2
 # Find the optimal hyperparameter for the speficic dataset
 i = 0
+times = 3
 
-for i in range(100):
+for i in range(times):
     
     tuner1,best_hps,best_epoch,second_best = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
     b = best_hps.values
@@ -49,7 +50,7 @@ for i in range(100):
         
     print(f'We are in the {i} iteration \n')
     
-print(f'The hermittes 2nd order appears {i} in 100 times as a proposed activation. \n')
+print(f'The hermittes 2nd order appears {i} in {times} times as a proposed activation. \n')
 print(f'The proposed NN is: {b} \n')
 #print best hyperparamaters with 
 # print(best_hps.get_config())  or 

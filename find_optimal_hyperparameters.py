@@ -53,7 +53,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     
       model.compile(
           optimizer = tf.keras.optimizers.Adam(learning_rate=hp_learning_rate),
-          loss      = tf.keras.losses.BinaryCrossentropy(from_logits=True),
+          loss      = tf.keras.losses.BinaryCrossentropy(from_logits=False),
           metrics   = ['accuracy']
           )
       
@@ -73,8 +73,8 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
               )
     '''
     
-    max_trials = 50
-    epochs     = 100
+    max_trials = 3
+    epochs     = 5
     
     # Using Bayesian optiization
     tuner1 = kt.BayesianOptimization(
@@ -85,9 +85,9 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
                alpha              = 0.001,
                beta               = 2.6,
                seed               = None,
-               overwrite          = True, # --> Overwrite the save data in the below dir
-               directory          = 'dir',
-               project_name       = 'Bayesian_Optimization',
+               #overwrite          = True, # --> Overwrite the save data in the below dir
+               #directory          = 'dir',
+               #project_name       = 'Bayesian_Optimization',
                )
     
     
@@ -109,9 +109,9 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     # tuner2.search_space_summary()
     
     
-    stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3)
+    #stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3)
     
-    tuner1.search(X, y, epochs=epochs, verbose=0,validation_data=(X_test, y_test),callbacks=[stop_early])
+    tuner1.search(X, y, epochs=epochs, verbose=0,validation_data=(X_test, y_test))#,callbacks=[stop_early])
     
     
     # Get the optimal hyperparameters 
@@ -150,7 +150,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
                         #validation_split=0.2,
                         verbose         = 0 ,                        
                         validation_data = (X_test, y_test),
-                        callbacks       = [stop_early],
+                        #callbacks       = [stop_early],
                         )
     
     val_acc_per_epoch = history.history['val_accuracy']
