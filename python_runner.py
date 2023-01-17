@@ -42,13 +42,15 @@ times = 100
 
 for i in range(times):
     
+    print(f'We are in the {i+1} iteration \n')
+    
     tuner1,best_hps,best_epoch,second_best = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
     b = best_hps.values
     
     if 'h_2nd' in b.values():
         i = i + 1;
         
-    print(f'We are in the {i} iteration \n')
+    
     
 print(f'The hermittes 2nd order appears {i} in {times} times as a proposed activation. \n')
 print(f'The proposed NN is: {b} \n')
