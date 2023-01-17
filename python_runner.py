@@ -4,6 +4,7 @@
 from connect_with_kaggle                import connect_with_kaggle
 from find_optimal_hyperparameters       import find_optimal_hyperparameters
 from train_with_optimal_hyperparameters import train_with_optimal_hyperparameters
+from train_with_optimal_hyperparameters_stat import train_with_optimal_hyperparameters_stat
 from scipy                              import stats
 
 from sklearn.model_selection            import train_test_split # split a dataset into train and test sets
@@ -27,7 +28,7 @@ run = neptune.init_run(
 # Step:1
 # Connect_with_kaggle and download the working dataset once
 
-searchname      = "diabetes"
+searchname      = "heart"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # split into train test sets
@@ -67,6 +68,7 @@ print(f'The proposed NN is: {b} \n')
 
 # Step:3
 # Train the hypermodel with optimal hyperparamters and evaluate on test data
+# Connect with NeptuneAI
 
 # Train the best model
 loss_best, accuracy_best = train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
@@ -74,8 +76,10 @@ loss_best, accuracy_best = train_with_optimal_hyperparameters(tuner1,best_hps,be
 # Train the best that not contains the polynomial
 loss_without_pol, accuracy_without_pol = train_with_optimal_hyperparameters(tuner1,scenario_without_pol,best_epoch,X,y,X_test,y_test)
 
-
 '''
+# previous comment line
+# Step 4: Statistics
+    
 loss_list_1     = []
 accuracy_list_1 = []
 
@@ -90,7 +94,7 @@ accuracy_list_3 = []
 # Loop 50 times for statistics / 50 values for loss and accuracy
 
 for i in range(100):
-    loss, accuracy = train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
+    loss, accuracy = train_with_optimal_hyperparameters_stat(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
     loss_list_1.append(loss)
     accuracy_list_1.append(accuracy)
 
@@ -104,14 +108,13 @@ for i in range(100):
 # loss and accuracy for a model that does not contain polynomial
 
 for i in range(100):
-    loss, accuracy = train_with_optimal_hyperparameters(tuner1,scenario_without_pol,best_epoch,X,y,X_test,y_test)
+    loss, accuracy = train_with_optimal_hyperparameters_stat(tuner1,scenario_without_pol,best_epoch,X,y,X_test,y_test)
     loss_list_3.append(loss)
     accuracy_list_3.append(accuracy)
 
-# Step 4:
+
 # Perform paired t-test for losses for the two scenarios
 t_stat_loss, p_value_loss = stats.ttest_rel(loss_list_1, loss_list_3)
-
 print(f'Statistics for losses: t = {t_stat_loss}, p_value = {p_value_loss}\n')
 
 t_stat_acc, p_value_acc = stats.ttest_rel(accuracy_list_1, accuracy_list_3)
@@ -130,7 +133,7 @@ print(f'Best model without polynomial is {scenario_without_pol.values}\n')
 #run.stop()
 '''
 
-end = time.time()
+end   = time.time()
 total = end-start
 
 import connect_with_kaggle
