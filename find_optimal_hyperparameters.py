@@ -118,7 +118,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     best_hps    = tuner1.get_best_hyperparameters(num_trials = max_trials)[0]
     second_best = tuner1.get_best_hyperparameters(num_trials = max_trials)[1]
     
-    '''
+    
     for i in range(max_trials):
         
         a = tuner1.get_best_hyperparameters(num_trials = max_trials)[i]
@@ -129,7 +129,8 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
         if 'h_2nd' not in v.values():
             scenario_without_pol = tuner1.get_best_hyperparameters(num_trials = max_trials)[i]
             break
-    '''
+    
+    
     '''
     print(f"""
     The hyperparameter search has been complete.\n
@@ -162,4 +163,4 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     
     #run.stop()
     
-    return tuner1,best_hps,best_epoch,second_best
+    return tuner1,best_hps,best_epoch,second_best,scenario_without_pol

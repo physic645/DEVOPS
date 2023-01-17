@@ -38,13 +38,13 @@ X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
 # Step:2
 # Find the optimal hyperparameter for the speficic dataset
 i = 0
-times = 50
+times = 100
 
 for i in range(times):
     
     print(f'We are in the {i+1} iteration \n')
     
-    tuner1,best_hps,best_epoch,second_best = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
+    tuner1,best_hps,best_epoch,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
     b = best_hps.values
     
     if 'h_2nd' in b.values():
@@ -68,7 +68,11 @@ print(f'The proposed NN is: {b} \n')
 # Step:3
 # Train the hypermodel with optimal hyperparamters and evaluate on test data
 
-loss, accuracy = train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
+# Train the best model
+loss_best, accuracy_best = train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
+
+# Train the best that not contains the polynomial
+loss_without_pol, accuracy_without_pol = train_with_optimal_hyperparameters(tuner1,scenario_without_pol,best_epoch,X,y,X_test,y_test)
 
 
 '''
