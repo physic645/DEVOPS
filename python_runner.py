@@ -38,7 +38,7 @@ X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
 # Step:2
 # Find the optimal hyperparameter for the speficic dataset
 i = 0
-times = 2
+times = 50
 
 for i in range(times):
     

@@ -73,8 +73,8 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
               )
     '''
     
-    max_trials = 3
-    epochs     = 2
+    max_trials = 50
+    epochs     = 50
     
     # Using Bayesian optiization
     tuner1 = kt.BayesianOptimization(
