@@ -28,7 +28,7 @@ run = neptune.init_run(
 # Step:1
 # Connect_with_kaggle and download the working dataset once
 
-searchname      = "haberman"
+searchname      = "banknote"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # split into train test sets
@@ -38,6 +38,11 @@ X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
 
 # Step:2
 # Find the optimal hyperparameter for the speficic dataset
+
+
+tuner1,best_hps,best_epoch,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
+
+
 i = 0
 times = 100
 
@@ -45,8 +50,8 @@ for i in range(times):
     
     print(f'We are in the {i+1} iteration \n')
     
-    tuner1,best_hps,best_epoch,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
-    b = best_hps.values
+    t1,best,best_e,snd_best,best_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
+    b = best.values
     
     if 'h_2nd' in b.values():
         i = i + 1;
@@ -72,10 +77,10 @@ print(f'Best model without polynomial is {scenario_without_pol.values}\n')
 # Connect with NeptuneAI
 
 # Train the best model
-loss_best, accuracy_best = train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
+loss_best, accuracy_best = train_with_optimal_hyperparameters(tuner1,best_hps,1000,X,y,X_test,y_test)
 
 # Train the best that not contains the polynomial
-loss_without_pol, accuracy_without_pol = train_with_optimal_hyperparameters(tuner1,scenario_without_pol,best_epoch,X,y,X_test,y_test)
+loss_without_pol, accuracy_without_pol = train_with_optimal_hyperparameters(tuner1,scenario_without_pol,1000,X,y,X_test,y_test)
 
 '''
 # previous comment line
