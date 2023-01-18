@@ -28,7 +28,7 @@ run = neptune.init_run(
 # Step:1
 # Connect_with_kaggle and download the working dataset once
 
-searchname      = "banknote"
+searchname      = "haberman"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # split into train test sets
