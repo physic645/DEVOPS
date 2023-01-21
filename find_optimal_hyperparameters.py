@@ -67,8 +67,8 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
               )
     '''
     
-    max_trials = 100
-    epochs     = 100
+    max_trials = 3
+    epochs     = 4
     
     # Using Bayesian optiization
     tuner1 = kt.BayesianOptimization(
@@ -79,7 +79,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
                alpha              = 0.001,
                beta               = 2.6,
                seed               = random.seed(), # --> makes the entire optimization process different every time we run it.            
-               #overwrite          = True, # --> Overwrite the save data in the below dir
+               overwrite          = True, # --> Overwrite the save data in the below dir
                #directory          = 'dir',
                #project_name       = 'Bayesian_Optimization',
                )
@@ -105,7 +105,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     
     #stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3)
     
-    tuner1.search(X, y, epochs=epochs, verbose=1,validation_data=(X_test, y_test))#,callbacks=[stop_early])
+    tuner1.search(X, y, epochs=epochs, verbose=0,validation_data=(X_test, y_test))#,callbacks=[stop_early])
     
     
     # Get the optimal hyperparameters 
@@ -157,5 +157,6 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     '''
     best_epoch = 1
     #run.stop()
+    
     
     return tuner1,best_hps,best_epoch,second_best,scenario_without_pol
