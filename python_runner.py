@@ -28,7 +28,7 @@ run = neptune.init_run(
 # Step:1
 # Connect_with_kaggle and download the working dataset once
 
-searchname      = "digits"
+searchname      = "diabetes"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # split into train test sets
@@ -38,10 +38,6 @@ X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
 
 # Step:2
 # Find the optimal hyperparameter for the speficic dataset
-
-
-tuner1,best_hps,best_epoch,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
-
 
 i      = 0
 times  = 100
@@ -54,15 +50,15 @@ for i in range(times):
     t1,best,best_e,snd_best,best_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
     b = best.values
     
-    print(f'best proposed in {times} loop is: {b}')
+    print(f'best proposed in {i+1} loop the proposed NN is: {b}')
     
     if 'h_2nd' in b.values():
         i = i + 1;
         
-    
+tuner1,best_hps,best_epoch,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)    
     
 print(f'The hermittes 2nd order appears {i} in {times} times as a proposed activation. \n')
-print(f'The proposed NN is: {b} \n\n')
+print(f'The proposed NN is: {best_hps.values} \n\n')
 print(f'Best model without polynomial is {scenario_without_pol.values}\n')
 #print best hyperparamaters with 
 # print(best_hps.get_config())  or 
