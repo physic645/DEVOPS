@@ -7,11 +7,9 @@ from neptune.new.integrations.tensorflow_keras import NeptuneCallback
 
 def train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test):
     
+    
     # Initiate connection with Neptune AI for monitoring
-    run = neptune.init_run(
-            project   ='k15redd22/MLOps',
-            api_token ="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI0NTA1M2VmOC0xZmUyLTQ4YzYtODdhYy0yNjRhY2E0NGM3YTAifQ==",
-        )
+    run = neptune.init_run(project ='k15redd22/MLOps', api_token ="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI0NTA1M2VmOC0xZmUyLTQ4YzYtODdhYy0yNjRhY2E0NGM3YTAifQ==")
     
 
     neptune_cbk = NeptuneCallback(run=run)
@@ -22,7 +20,8 @@ def train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_t
     # Retrain the model
     hypermodel.fit(X,y, epochs=best_epoch, verbose = 0, 
                    validation_data=(X_test, y_test),
-                   callbacks=[neptune_cbk])
+                   callbacks=[neptune_cbk]
+                   )
     
     
     # Evaluate the hypermodel on the test data.
@@ -32,7 +31,7 @@ def train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_t
     
     #run['Test_accuracy'].log(eval_result[1])
     
-    run.stop()
+    #run.stop()
     
     return eval_result[0], eval_result[1]
 

@@ -28,7 +28,7 @@ run = neptune.init_run(
 # Step:1
 # Connect_with_kaggle and download the working dataset once
 
-searchname      = "heart"
+searchname      = "titanic"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # split into train test sets
@@ -77,10 +77,10 @@ print(f'Best model without polynomial is {scenario_without_pol.values}\n')
 # Connect with NeptuneAI
 
 # Train the best model
-loss_best, accuracy_best = train_with_optimal_hyperparameters(tuner1,best_hps,100,X,y,X_test,y_test)
+loss_best, accuracy_best = train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_test)
 
 # Train the best that not contains the polynomial
-loss_without_pol, accuracy_without_pol = train_with_optimal_hyperparameters(tuner1,scenario_without_pol,100,X,y,X_test,y_test)
+loss_without_pol, accuracy_without_pol = train_with_optimal_hyperparameters(tuner1,scenario_without_pol,best_epoch,X,y,X_test,y_test)
 
 '''
 # previous comment line
