@@ -105,7 +105,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     
     #stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3)
     
-    tuner1.search(X, y, epochs=epochs, verbose=0,validation_data=(X_test, y_test))#,callbacks=[stop_early])
+    tuner1.search(X, y, epochs=epochs, verbose=1,validation_data=(X_test, y_test))#,callbacks=[stop_early])
     
     
     # Get the optimal hyperparameters 
