@@ -50,7 +50,7 @@ for i in range(times):
     t1,best,best_e,snd_best,best_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
     b = best.values
     
-    print(f'best proposed in {i+1} loop the proposed NN is: {b}')
+    #print(f'best proposed in {i+1} loop the proposed NN is: {b}')
     
     if 'h_2nd' in b.values():
         i = i + 1;
