@@ -67,8 +67,8 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
               )
     '''
     
-    max_trials = 3
-    epochs     = 4
+    max_trials = 100
+    epochs     = 100
     
     # Using Bayesian optiization
     tuner1 = kt.BayesianOptimization(
@@ -79,7 +79,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
                alpha              = 0.001,
                beta               = 2.6,
                seed               = random.seed(), # --> makes the entire optimization process different every time we run it.            
-               overwrite          = True, # --> Overwrite the save data in the below dir
+               overwrite          = True,          # --> Overwrite the save data in the below dir
                #directory          = 'dir',
                #project_name       = 'Bayesian_Optimization',
                )
@@ -123,7 +123,8 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
         if 'h_2nd' not in v.values():
             scenario_without_pol = tuner1.get_best_hyperparameters(num_trials = max_trials)[i]
             break
-    
+        else:
+            scenario_without_pol = {} # case where there is no scenario without pol
     
     '''
     print(f"""
