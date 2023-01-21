@@ -31,7 +31,7 @@ def train_with_optimal_hyperparameters(tuner1,best_hps,best_epoch,X,y,X_test,y_t
     
     #run['Test_accuracy'].log(eval_result[1])
     
-    #run.stop()
+    run.stop()
     
     return eval_result[0], eval_result[1]
 
