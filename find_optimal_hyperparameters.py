@@ -5,6 +5,7 @@ import keras_tuner as kt
 import pandas      as pd
 #import neptunecontrib.monitoring.kerastuner as npt_utils
 import neptune.new as neptune
+import random
 
 
 # Libraries useful to create custom activation function
@@ -14,13 +15,6 @@ from keras.layers.core import Activation
 #from keras.utils.generic_utils import get_custom_objects
 from tensorflow.keras.utils import get_custom_objects
 
-'''
-# Initiate connection with Neptune AI for monitoring
-run = neptune.init_run(
-        project   ='k15redd22/MLOps',
-        api_token ="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI0NTA1M2VmOC0xZmUyLTQ4YzYtODdhYy0yNjRhY2E0NGM3YTAifQ==",
-    )
-'''
 
 
 def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
@@ -84,7 +78,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
                num_initial_points = 2,
                alpha              = 0.001,
                beta               = 2.6,
-               seed               = None,
+               seed               = random.seed(), # --> makes the entire optimization process different every time we run it.            
                #overwrite          = True, # --> Overwrite the save data in the below dir
                #directory          = 'dir',
                #project_name       = 'Bayesian_Optimization',
@@ -142,7 +136,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     """)
     '''
     
-        
+    '''
     # Find the optimal number of epochs to train the model 
     # with the hyperparameters obtained from the search.
     model   = tuner1.hypermodel.build(best_hps)
@@ -160,7 +154,8 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     
     best_epoch        = val_acc_per_epoch.index(max(val_acc_per_epoch)) + 1
     print('Best epoch: %d' % (best_epoch,))
-    
+    '''
+    best_epoch = 1
     #run.stop()
     
     return tuner1,best_hps,best_epoch,second_best,scenario_without_pol
