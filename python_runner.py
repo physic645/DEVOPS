@@ -40,9 +40,10 @@ X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
 # Find the optimal hyperparameter for the speficic dataset
 
 i      = 0
-times  = 100
+#times  = 100
 epochs = 100
 
+'''
 for i in range(times):
     
     print(f'We are in the {i+1} iteration \n')
@@ -54,10 +55,13 @@ for i in range(times):
     
     if 'h_2nd' in b.values():
         i = i + 1;
-        
+
+print(f'The hermittes 2nd order appears {i} in {times} times as a proposed activation. \n')        
+'''
+
 tuner1,best_hps,best_epoch,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)    
     
-print(f'The hermittes 2nd order appears {i} in {times} times as a proposed activation. \n')
+
 print(f'The proposed NN is: {best_hps.values} \n\n')
 print(f'Best model without polynomial is {scenario_without_pol.values}\n')
 #print best hyperparamaters with 
