@@ -23,7 +23,7 @@ run = neptune.init_run(
 '''
 
 # ----------------------------------------------------------------------------
-# ---- An automated machine learning pipeline of three steps -----------------
+# ---- An automated machine learning pipeline of three steps ------------------
 
 # Step:1
 # Connect_with_kaggle and download the working dataset once
