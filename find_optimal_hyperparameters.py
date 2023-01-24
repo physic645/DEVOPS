@@ -78,7 +78,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
                num_initial_points = 2,
                alpha              = 0.001,
                beta               = 2.6,
-               seed               = 42 #random.seed(), # --> makes the entire optimization process different every time we run it.            
+               seed               = 42, #random.seed(), # --> makes the entire optimization process different every time we run it.            
                overwrite          = True,          # --> Overwrite the save data in the below dir
                #directory          = 'dir',
                #project_name       = 'Bayesian_Optimization',
