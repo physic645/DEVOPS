@@ -3,7 +3,7 @@
 # Libraries
 from connect_with_kaggle                import connect_with_kaggle
 from find_optimal_hyperparameters       import find_optimal_hyperparameters
-from train_with_optimal_hyperparameters import train_with_optimal_hyperparameters
+from train_and_evaluate_hypermodel      import train_and_evaluate_hypermodel
 #from train_with_optimal_hyperparameters_stat import train_with_optimal_hyperparameters_stat
 from scipy                              import stats
 
@@ -12,21 +12,15 @@ from sklearn.model_selection            import train_test_split # split a datase
 import neptune.new as neptune
 import time
 
-start = time.time()
 
-'''
-# Initiate connection with Neptune AI for monitoring
-run = neptune.init_run(
-        project   ='k15redd22/MLOps',
-        api_token ="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI0NTA1M2VmOC0xZmUyLTQ4YzYtODdhYy0yNjRhY2E0NGM3YTAifQ==",
-    )
-'''
+start_program_time = time.time()
 
 # ----------------------------------------------------------------------------
 # ---- An automated machine learning pipeline of three steps ------------------
+# ----------------------------------------------------------------------------
 
-# Step:1
-# Connect_with_kaggle and download the working dataset once
+
+# Step 1: Connect_with_kaggle and download the working dataset once
 
 searchname      = "diabetes"
 X,y,input_shape = connect_with_kaggle(searchname)
@@ -34,14 +28,17 @@ X,y,input_shape = connect_with_kaggle(searchname)
 # split into train test sets
 X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
 
+# --------------------------- end step 1 ------------------------------------
 
 
-# Step:2
-# Find the optimal hyperparameter for the speficic dataset
 
-i      = 0
+# Step 2: Find the first 5 hypermodels for the speficic dataset
+
+start_hyper_time = time.time()
+
 #times  = 100
-epochs = 100
+#i      = 0
+
 
 '''
 for i in range(times):
@@ -59,11 +56,21 @@ for i in range(times):
 print(f'The hermittes 2nd order appears {i} in {times} times as a proposed activation. \n')        
 '''
 
-tuner1,best_hps,best_epoch,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)    
-    
 
-print(f'The proposed NN is: {best_hps.values} \n\n')
-print(f'Best model without polynomial is {scenario_without_pol.values}\n')
+
+tuner1,best_hps,second_best,third_best,fourth_best,fifth_best = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)    
+
+
+
+
+# Print the 5 best models
+print(f'The best        is: {best_hps.values} \n\n')
+print(f'The second best is: {second_best.values} \n\n')
+print(f'The third_best  is: {third_best.values} \n\n')
+print(f'The fourth_best is: {fourth_best.values} \n\n')
+print(f'The fifth_best  is: {fifth_best.values} \n\n')
+
+
 #print best hyperparamaters with 
 # print(best_hps.get_config())  or 
 # tuner.results_summary() --> shows the 10 best trials
@@ -73,17 +80,40 @@ print(f'Best model without polynomial is {scenario_without_pol.values}\n')
 # print(f'\n{tuner1.results_summary(7)}\n')
 
 
+end_hyper_time = time.time()
+
+# --------------------------- end step 2 ----------------------------------
 
 
-# Step:3
-# Train the hypermodel with optimal hyperparamters and evaluate on test data
+
+
+# Step 3: Train the 5 hypermodels for 100 epochs and evaluate on test data
 # Connect with NeptuneAI
 
-# Train the best model
-loss_best, accuracy_best               = train_with_optimal_hyperparameters(tuner1,best_hps,epochs,X,y,X_test,y_test)
+start_training_time_5_hypermodels = time.time()
 
-# Train the best that not contains the polynomial
-loss_without_pol, accuracy_without_pol = train_with_optimal_hyperparameters(tuner1,scenario_without_pol,epochs,X,y,X_test,y_test)
+epochs = 100
+
+
+# Train the best model
+loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,best_hps,epochs,X,y,X_test,y_test)
+'''
+# Train the second_best_model
+loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,second_best,epochs,X,y,X_test,y_test)
+
+# Train the third_best_model
+loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,third_best,epochs,X,y,X_test,y_test)
+
+# Train the fourth_best_model
+loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,fourth_best,epochs,X,y,X_test,y_test)
+
+# Train the fifth_best_model
+loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,fifth_best,epochs,X,y,X_test,y_test)
+'''
+
+
+end_training_time_5_hypermodels = time.time()
+# --------------------------- end step 3 ----------------------------------
 
 '''
 # previous comment line
@@ -142,10 +172,22 @@ print(f'Best model without polynomial is {scenario_without_pol.values}\n')
 #run.stop()
 '''
 
-end   = time.time()
-total = end-start
-
 import connect_with_kaggle
+end_program_time   = time.time()
+
+total_hyper_time                  = end_hyper_time                  - start_hyper_time
+total_training_time_5_hypermodels = end_training_time_5_hypermodels - start_training_time_5_hypermodels
+total_program_time                = end_program_time                - start_program_time
+
+# Print associated times
+print('\nThe associated times were: \n')
+
+print(f'The total time for hypertuning the {connect_with_kaggle.title} dataset was: {total_hyper_time:.3f} seconds \n')
+
+print(f'The total time for training the {connect_with_kaggle.title} dataset for the 5 best models for {epochs} epochs was: {total_training_time_5_hypermodels:.3f} seconds \n')
+
+print(f'The whole process for took total {total_program_time:.3f} seconds \n')
 
 print(f'\n We trained the {connect_with_kaggle.title} dataset made by {connect_with_kaggle.creator} \n')
-print(f'This neural network training took {total:.3f} seconds')
+
+# ----- END OF PROGRAM ----

@@ -37,9 +37,9 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     
       # Try different numbers of layers between 2 and 6
       
-      for i in range(hp.Int('layers',3,5)):
+      for i in range(hp.Int('layers',3,6)):
           model.add(tf.keras.layers.Dense(
-              units      = hp.Int('units_'  + str(i), 2, 10, step=2),
+              units      = hp.Int('units_'  + str(i), 2, 12, step=2),
               activation = hp.Choice('act_' + str(i), ['relu', 'tanh', 'h_2nd'])))
                         
            
@@ -67,8 +67,8 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
               )
     '''
     
-    max_trials = 100
-    epochs     = 100
+    max_trials = 5
+    epochs     = 1
     
     # Using Bayesian optiization
     tuner1 = kt.BayesianOptimization(
@@ -111,8 +111,11 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     # Get the optimal hyperparameters 
     best_hps    = tuner1.get_best_hyperparameters(num_trials = max_trials)[0]
     second_best = tuner1.get_best_hyperparameters(num_trials = max_trials)[1]
+    third_best  = tuner1.get_best_hyperparameters(num_trials = max_trials)[2]
+    fourth_best = tuner1.get_best_hyperparameters(num_trials = max_trials)[3]
+    fifth_best  = tuner1.get_best_hyperparameters(num_trials = max_trials)[4]
     
-    
+    '''
     for i in range(max_trials):
         
         a = tuner1.get_best_hyperparameters(num_trials = max_trials)[i]
@@ -125,6 +128,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
             break
         else:
             scenario_without_pol = {} # case where there is no scenario without pol
+    '''
     
     '''
     print(f"""
@@ -156,8 +160,8 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     best_epoch        = val_acc_per_epoch.index(max(val_acc_per_epoch)) + 1
     print('Best epoch: %d' % (best_epoch,))
     '''
-    best_epoch = 1
+    #best_epoch = 1
     #run.stop()
     
     
-    return tuner1,best_hps,best_epoch,second_best,scenario_without_pol
+    return tuner1,best_hps,second_best,third_best,fourth_best,fifth_best
