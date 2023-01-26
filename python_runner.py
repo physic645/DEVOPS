@@ -11,7 +11,7 @@ from sklearn.model_selection            import train_test_split # split a datase
 
 import neptune.new as neptune
 import time
-
+from sklearn.preprocessing import LabelEncoder
 
 start_program_time = time.time()
 
@@ -22,7 +22,7 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset once
 
-searchname      = "wine quality"
+searchname      = "rice"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # If the dataset is larger than 2000 rows keep only 2000
@@ -31,6 +31,11 @@ if len(X) > 2000:
 
 if len(y) > 2000:
     y = y[:2000]
+
+# if the target variable is in string format convert to 0 or 1    
+if type(y) == str:
+    le = LabelEncoder()
+    y  = le.fit_transform(y)
 
 # split into train test sets
 X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)

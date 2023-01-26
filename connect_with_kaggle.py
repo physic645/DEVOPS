@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 from kaggle.api.kaggle_api_extended import KaggleApi
 from numpy                   import loadtxt
-
+import random
 
 def connect_with_kaggle(searchname):
     
@@ -58,6 +58,8 @@ def connect_with_kaggle(searchname):
     # Process the csv file
     
     dataframe = pd.read_csv(r'./dataset_download/' + str(files[0]))
+    # Shuffle dataset
+    dataframe = dataframe.sample(frac=1)
     dataset   = dataframe.values
 
     # Delete the first row of the dataset - maybe are labels - if not we are losing one row 
