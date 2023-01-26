@@ -29,7 +29,7 @@ X,y,input_shape = connect_with_kaggle(searchname)
 if len(X) > 2000:
     X = X[:2000]
 
-if len(Y) > 2000:
+if len(y) > 2000:
     y = y[:2000]
 
 # split into train test sets
