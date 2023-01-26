@@ -22,8 +22,15 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset once
 
-searchname      = "Surgical"
+searchname      = "water quality"
 X,y,input_shape = connect_with_kaggle(searchname)
+
+# If the dataset is larger than 2000 rows keep only 2000
+if len(X) > 2000:
+    X = X[:2000]
+
+if len(Y) > 2000:
+    y = y[:2000]
 
 # split into train test sets
 X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
