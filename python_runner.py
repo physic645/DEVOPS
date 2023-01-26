@@ -22,7 +22,7 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset once
 
-searchname      = "Surgical-deepnet"
+searchname      = "Surgical"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # split into train test sets
