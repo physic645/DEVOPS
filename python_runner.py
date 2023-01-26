@@ -97,7 +97,7 @@ epochs = 100
 
 # Train the best model
 loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,best_hps,epochs,X,y,X_test,y_test)
-'''
+
 # Train the second_best_model
 loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,second_best,epochs,X,y,X_test,y_test)
 
@@ -109,7 +109,7 @@ loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,fo
 
 # Train the fifth_best_model
 loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,fifth_best,epochs,X,y,X_test,y_test)
-'''
+
 
 
 end_training_time_5_hypermodels = time.time()
@@ -186,7 +186,7 @@ print(f'The total time for hypertuning the {connect_with_kaggle.title} dataset w
 
 print(f'The total time for training the {connect_with_kaggle.title} dataset for the 5 best models for {epochs} epochs was: {total_training_time_5_hypermodels:.3f} seconds \n')
 
-print(f'The whole process for took total {total_program_time:.3f} seconds \n')
+print(f'The whole process took total {total_program_time:.3f} seconds \n')
 
 print(f'\n We trained the {connect_with_kaggle.title} dataset made by {connect_with_kaggle.creator} \n')
 
