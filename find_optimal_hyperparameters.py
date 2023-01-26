@@ -37,9 +37,9 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     
       # Try different numbers of layers between 2 and 6
       
-      for i in range(hp.Int('layers',3,6)):
+      for i in range(hp.Int('layers',3,5)):
           model.add(tf.keras.layers.Dense(
-              units      = hp.Int('units_'  + str(i), 2, 12, step=2),
+              units      = hp.Int('units_'  + str(i), 5, 30, step=5),
               activation = hp.Choice('act_' + str(i), ['relu', 'tanh', 'h_2nd'])))
                         
            
