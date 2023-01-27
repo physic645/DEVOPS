@@ -1,0 +1,25 @@
+The best        is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 30, 'act_0': 'relu', 'units_1': 25, 'act_1': 'h_2nd', 'units_2': 25, 'act_2': 'relu', 'units_3': 5, 'act_3': 'relu', 'units_4': 20, 'act_4': 'relu'} 
+
+
+The second best is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 30, 'act_0': 'relu', 'units_1': 20, 'act_1': 'h_2nd', 'units_2': 20, 'act_2': 'relu', 'units_3': 5, 'act_3': 'relu', 'units_4': 5, 'act_4': 'tanh'} 
+
+
+The third_best  is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 30, 'act_0': 'relu', 'units_1': 25, 'act_1': 'h_2nd', 'units_2': 30, 'act_2': 'relu', 'units_3': 5, 'act_3': 'relu', 'units_4': 5, 'act_4': 'h_2nd'} 
+
+
+The fourth_best is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 30, 'act_0': 'relu', 'units_1': 30, 'act_1': 'h_2nd', 'units_2': 30, 'act_2': 'relu', 'units_3': 5, 'act_3': 'h_2nd', 'units_4': 20, 'act_4': 'relu'} 
+
+
+The fifth_best  is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 30, 'act_0': 'relu', 'units_1': 30, 'act_1': 'h_2nd', 'units_2': 30, 'act_2': 'relu', 'units_3': 5, 'act_3': 'h_2nd', 'units_4': 30, 'act_4': 'h_2nd'} 
+
+
+The associated times were: 
+
+The total time for hypertuning the Anemia Dataset dataset was: 2750.304 seconds 
+
+The total time for training the Anemia Dataset dataset for the 5 best models for 100 epochs was: 103.945 seconds 
+
+The whole process took total 2855.611 seconds 
+
+
+ We trained the Anemia Dataset dataset made by Biswa Ranjan Rao 

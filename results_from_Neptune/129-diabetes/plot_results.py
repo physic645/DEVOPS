@@ -6,11 +6,11 @@ import numpy as np
 import math
 
 # Reading csv file into numpy array 
-best        = np.loadtxt("C:/Users/a5138828/Documents/DEVOPS/results_from_Neptune/122_surgical/best.csv", delimiter=",")
-second_best = np.loadtxt("C:/Users/a5138828/Documents/DEVOPS/results_from_Neptune/122_surgical/2b.csv", delimiter=",")
-third_best  = np.loadtxt("C:/Users/a5138828/Documents/DEVOPS/results_from_Neptune/122_surgical/3b.csv", delimiter=",")
-fourth_best = np.loadtxt("C:/Users/a5138828/Documents/DEVOPS/results_from_Neptune/122_surgical/4b.csv", delimiter=",")
-fifth_best  = np.loadtxt("C:/Users/a5138828/Documents/DEVOPS/results_from_Neptune/122_surgical/5b.csv", delimiter=",")
+best        = np.loadtxt("C:/Users/a5138828/Documents/DEVOPS/results_from_Neptune/129-diabetes/best.csv", delimiter=",")
+second_best = np.loadtxt("C:/Users/a5138828/Documents/DEVOPS/results_from_Neptune/129-diabetes/2b.csv", delimiter=",")
+third_best  = np.loadtxt("C:/Users/a5138828/Documents/DEVOPS/results_from_Neptune/129-diabetes/3b.csv", delimiter=",")
+fourth_best = np.loadtxt("C:/Users/a5138828/Documents/DEVOPS/results_from_Neptune/129-diabetes/4b.csv", delimiter=",")
+fifth_best  = np.loadtxt("C:/Users/a5138828/Documents/DEVOPS/results_from_Neptune/129-diabetes/5b.csv", delimiter=",")
 
 rows = 99
 
@@ -25,8 +25,8 @@ fifth_best  = fifth_best[1:rows,2]
 
 # Plotting 5 best models in the same plot
 plt.plot(t, best,        color='b',      label='Proposed Polynomial NN')
-plt.plot(t, second_best, color='r',      label='Second best', linestyle = '--', dashes=[2, 4, 6, 4])
-plt.plot(t, third_best,  color='orange', label='Third best',  linestyle = None, marker='o', )
+plt.plot(t, second_best, color='r',      label='Second best', linestyle = '--', )
+plt.plot(t, third_best,  color='orange', label='Third best',  linestyle = None,)
 #plt.plot(t, fourth_best, color='c', label='Fourth best')
 #plt.plot(t, fifth_best, color='y', label='Fifth best')
 
