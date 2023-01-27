@@ -22,7 +22,7 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset oncee
 
-searchname      = "phishing website"
+searchname      = "heart attack"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # If the dataset is larger than 2000 rows keep only 2000
@@ -117,12 +117,13 @@ loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,se
 # Train the third_best_model
 loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,third_best,epochs,X,y,X_test,y_test)
 
+'''
 # Train the fourth_best_model
 loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,fourth_best,epochs,X,y,X_test,y_test)
 
 # Train the fifth_best_model
 loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,fifth_best,epochs,X,y,X_test,y_test)
-
+'''
 
 
 end_training_time_5_hypermodels = time.time()
