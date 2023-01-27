@@ -4,8 +4,8 @@ Keywords that we take results
 2. surgical
 3. lungs (anemia)
 4. Room Occupancy seems good
-5. water quality no
-6. wine quality ?
+5. water quality     no
+6. wine quality       no
 7. pulsar propably no
 8. blood transfusion ? 
 9. heart attack ?
