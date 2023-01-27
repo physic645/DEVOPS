@@ -20,9 +20,9 @@ start_program_time = time.time()
 # ----------------------------------------------------------------------------
 
 
-# Step 1: Connect_with_kaggle and download the working dataset once
+# Step 1: Connect_with_kaggle and download the working dataset oncee
 
-searchname      = "wine quality"
+searchname      = "phishing website"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # If the dataset is larger than 2000 rows keep only 2000
