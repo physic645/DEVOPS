@@ -22,7 +22,7 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset once
 
-searchname      = "room occupancy"
+searchname      = "wine quality"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # If the dataset is larger than 2000 rows keep only 2000
@@ -36,6 +36,7 @@ if len(y) > 2000:
 if type(y) == str:
     le = LabelEncoder()
     y  = le.fit_transform(y)
+
 
 # split into train test sets
 X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)

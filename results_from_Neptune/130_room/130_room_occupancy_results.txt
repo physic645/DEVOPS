@@ -1,0 +1,24 @@
+The best        is: {'learning_rate': 0.0001, 'layers': 3, 'units_0': 30, 'act_0': 'h_2nd', 'units_1': 10, 'act_1': 'relu', 'units_2': 20, 'act_2': 'h_2nd', 'units_3': 5, 'act_3': 'relu', 'units_4': 5, 'act_4': 'relu'} 
+
+
+The second best is: {'learning_rate': 0.0001, 'layers': 3, 'units_0': 5, 'act_0': 'h_2nd', 'units_1': 30, 'act_1': 'relu', 'units_2': 30, 'act_2': 'h_2nd', 'units_3': 5, 'act_3': 'relu', 'units_4': 5, 'act_4': 'h_2nd'} 
+
+
+The third_best  is: {'learning_rate': 0.0001, 'layers': 3, 'units_0': 30, 'act_0': 'relu', 'units_1': 10, 'act_1': 'relu', 'units_2': 30, 'act_2': 'relu', 'units_3': 5, 'act_3': 'relu', 'units_4': 5, 'act_4': 'relu'} 
+
+
+The fourth_best is: {'learning_rate': 0.0001, 'layers': 3, 'units_0': 30, 'act_0': 'h_2nd', 'units_1': 5, 'act_1': 'relu', 'units_2': 30, 'act_2': 'relu', 'units_3': 5, 'act_3': 'h_2nd', 'units_4': 10, 'act_4': 'relu'} 
+
+
+The fifth_best  is: {'learning_rate': 0.0001, 'layers': 3, 'units_0': 5, 'act_0': 'h_2nd', 'units_1': 30, 'act_1': 'relu', 'units_2': 30, 'act_2': 'h_2nd', 'units_3': 5, 'act_3': 'h_2nd', 'units_4': 30, 'act_4': 'h_2nd'} 
+
+The associated times were: 
+
+The total time for hypertuning the Room Occupancy dataset was: 3004.914 seconds 
+
+The total time for training the Room Occupancy dataset for the 5 best models for 100 epochs was: 111.483 seconds 
+
+The whole process took total 3117.794 seconds 
+
+
+ We trained the Room Occupancy dataset made by Sachin Sharma 
