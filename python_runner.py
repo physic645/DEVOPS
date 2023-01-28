@@ -22,7 +22,7 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset oncee
 
-searchname      = "water quality"
+searchname      = "brain"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 # If the dataset is larger than 2000 rows keep only 2000
