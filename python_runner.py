@@ -20,7 +20,7 @@ start_program_time = time.time()
 # ----------------------------------------------------------------------------
 
 
-# Step 1: Connect_with_kaggle and download the working dataset oncee
+# Step 1: Connect_with_kaggle and download the working dataset onceee
 
 searchname      = "phishing website"
 X,y,input_shape = connect_with_kaggle(searchname)
