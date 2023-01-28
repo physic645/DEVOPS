@@ -22,16 +22,17 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset onceee
 
-searchname      = "titanic"
+searchname      = "banknote authentication"
 X,y,input_shape = connect_with_kaggle(searchname)
 
+'''
 # If the dataset is larger than 2000 rows keep only 2000
 if len(X) > 2000:
     X = X[:2000]
 
 if len(y) > 2000:
     y = y[:2000]
-    
+'''
 
 # if the target variable is in string format convert to 0 or 1    
 if type(y[0]) == str:
