@@ -1,0 +1,38 @@
+The best        is: {'learning_rate': 0.0001, 'layers': 4, 
+'units_0': 20, 'act_0': 'tanh', 
+'units_1': 20, 'act_1': 'tanh', 
+'units_2': 30, 'act_2': 'relu', 
+'units_3': 15, 'act_3': 'relu'} 
+
+
+The second best is: {'learning_rate': 0.01, 'layers': 4, 
+'units_0': 30, 'act_0': 'tanh', 
+'units_1': 15, 'act_1': 'relu', 
+'units_2': 30, 'act_2': 'relu', 
+'units_3': 30, 'act_3': 'relu', 
+'units_4': 15, 'act_4': 'relu'} 
+
+
+The third_best  is: {'learning_rate': 0.0001, 'layers': 4, 
+'units_0': 30, 'act_0': 'h_2nd', 
+'units_1': 20, 'act_1': 'tanh', 
+'units_2': 30, 'act_2': 'relu', 
+'units_3': 30, 'act_3': 'relu', 
+'units_4': 30, 'act_4': 'relu'} 
+
+
+The fourth_best is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 15, 'act_0': 'h_2nd', 'units_1': 30, 'act_1': 'relu', 'units_2': 30, 'act_2': 'relu', 'units_3': 10, 'act_3': 'relu', 'units_4': 30, 'act_4': 'relu'} 
+
+
+The fifth_best  is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 30, 'act_0': 'h_2nd', 'units_1': 25, 'act_1': 'tanh', 'units_2': 5, 'act_2': 'relu', 'units_3': 30, 'act_3': 'relu', 'units_4': 30, 'act_4': 'tanh'} 
+
+The associated times were: 
+
+The total time for hypertuning the BankNote Authentication UCI dataset was: 3298.742 seconds 
+
+The total time for training the BankNote Authentication UCI dataset for the 3 best models for 100 epochs was: 67.650 seconds 
+
+The whole process took total 3367.706 seconds 
+
+
+ We trained the BankNote Authentication UCI dataset made by Shantanu 

@@ -1,16 +1,41 @@
-The best        is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 5, 'act_0': 'relu', 'units_1': 15, 'act_1': 'tanh', 'units_2': 30, 'act_2': 'h_2nd', 'units_3': 5, 'act_3': 'relu', 'units_4': 5, 'act_4': 'relu'} 
+The best        is: {'learning_rate': 0.01, 'layers': 3, 
+'units_0': 5, 'act_0': 'relu', 
+'units_1': 15, 'act_1': 'tanh', 
+'units_2': 30, 'act_2': 'h_2nd', 
+'units_3': 5, 'act_3': 'relu', 
+'units_4': 5, 'act_4': 'relu'} 
 
 
-The second best is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 15, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 5, 'act_2': 'h_2nd', 'units_3': 30, 'act_3': 'tanh', 'units_4': 30, 'act_4': 'h_2nd'} 
+The second best is: {'learning_rate': 0.01, 'layers': 3, 
+'units_0': 15, 'act_0': 'relu', 
+'units_1': 30, 'act_1': 'relu', 
+'units_2': 5, 'act_2': 'h_2nd', 
+'units_3': 30, 'act_3': 'tanh', 
+'units_4': 30, 'act_4': 'h_2nd'} 
 
 
-The third_best  is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 15, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 5, 'act_2': 'h_2nd', 'units_3': 30, 'act_3': 'tanh', 'units_4': 30, 'act_4': 'h_2nd'} 
+The third_best  is: {'learning_rate': 0.01, 'layers': 3, 
+'units_0': 15, 'act_0': 'relu', 
+'units_1': 30, 'act_1': 'relu', 
+'units_2': 5, 'act_2': 'h_2nd', 
+'units_3': 30, 'act_3': 'tanh', 
+'units_4': 30, 'act_4': 'h_2nd'} 
 
 
-The fourth_best is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 15, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 5, 'act_2': 'h_2nd', 'units_3': 30, 'act_3': 'tanh', 'units_4': 30, 'act_4': 'h_2nd'} 
+The fourth_best is: {'learning_rate': 0.01, 'layers': 3, 
+'units_0': 15, 'act_0': 'relu', 
+'units_1': 30, 'act_1': 'relu', 
+'units_2': 5, 'act_2': 'h_2nd', 
+'units_3': 30, 'act_3': 'tanh', 
+'units_4': 30, 'act_4': 'h_2nd'} 
 
 
-The fifth_best  is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 15, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 5, 'act_2': 'h_2nd', 'units_3': 30, 'act_3': 'tanh', 'units_4': 30, 'act_4': 'h_2nd'} 
+The fifth_best  is: {'learning_rate': 0.01, 'layers': 3, 
+'units_0': 15, 'act_0': 'relu', 
+'units_1': 30, 'act_1': 'relu', 
+'units_2': 5, 'act_2': 'h_2nd', 
+'units_3': 30, 'act_3': 'tanh', 
+'units_4': 30, 'act_4': 'h_2nd'} 
 
 The associated times were: 
 

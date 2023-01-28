@@ -1,12 +1,40 @@
-Keywords that we take results
+Keywords that we pass in the searchname and we take results
 
-1. diabetes
-2. surgical
-3. lungs (anemia)
-4. Room Occupancy seems good
-5. water quality     no
-6. wine quality       no
-7. pulsar propably no
-8. blood transfusion ? 
-9. heart attack ?
-10. phishing website looks good.
+1. 129_diabetes OK
+2. 122_surgical OK
+3. 118_lungs (anemia) OK
+4. 133_heart attack   OK
+5. 130_Room Occupancy let's say OK
+6. 134_blood transfusion OK
+7. 136_banknote authentication OK
+8. 137_ionosphere JAMIE LEECH let's say OK
+9. 140_brain seems OK
+10.141_phising_website OK
+
+
+
+air properties time series ? needs modification
+
+
+# Rejected:
+
+water quality   no
+wine quality    no
+pulsar propably no
+phishing website etsi k etsi results let's say no
+depression looks good - no
+water quality MSSMARTYPANTS -> good dataset makes an error on X tensor NO
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.85]{titanic_val_acc.png}
+    \caption{\textbf{Titanic dataset from Khashayar Baghizadeh 
+    Hosseini:}
+    Validation accuracy for the best proposed neural network
+    that contains polynomial layer
+    relative with the next best network that does not
+    contain polynomial activation function.}
+    \label{titanic_pol_vs}
+\end{figure}

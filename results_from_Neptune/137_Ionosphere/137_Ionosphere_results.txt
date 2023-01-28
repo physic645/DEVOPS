@@ -1,0 +1,39 @@
+The best        is: {'learning_rate': 0.01, 'layers': 3, 
+'units_0': 20, 'act_0': 'relu', 
+'units_1': 30, 'act_1': 'tanh', 
+'units_2': 5, 'act_2': 'tanh', 
+'units_3': 5, 'act_3': 'relu', 
+'units_4': 15, 'act_4': 'relu'} 
+
+
+The second best is: {'learning_rate': 0.01, 'layers': 3, 
+'units_0': 10, 'act_0': 'relu', 
+'units_1': 30, 'act_1': 'relu', 
+'units_2': 30, 'act_2': 'relu', 
+'units_3': 5, 'act_3': 'relu', 
+'units_4': 20, 'act_4': 'relu'} 
+
+
+The third_best  is: {'learning_rate': 0.01, 'layers': 3, 
+'units_0': 5, 'act_0': 'relu', 
+'units_1': 15, 'act_1': 'relu', 
+'units_2': 15, 'act_2': 'relu', 
+'units_3': 5, 'act_3': 'relu', 
+'units_4': 5, 'act_4': 'h_2nd'} 
+
+
+The fourth_best is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 15, 'act_0': 'relu', 'units_1': 25, 'act_1': 'relu', 'units_2': 5, 'act_2': 'h_2nd', 'units_3': 5, 'act_3': 'relu', 'units_4': 15, 'act_4': 'relu'} 
+
+
+The fifth_best  is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 20, 'act_0': 'relu', 'units_1': 30, 'act_1': 'tanh', 'units_2': 5, 'act_2': 'tanh', 'units_3': 5, 'act_3': 'relu', 'units_4': 20, 'act_4': 'relu'} 
+
+The associated times were: 
+
+The total time for hypertuning the Ionosphere dataset was: 2047.118 seconds 
+
+The total time for training the Ionosphere dataset for the 3 best models for 100 epochs was: 37.386 seconds 
+
+The whole process took total 2085.779 seconds 
+
+
+ We trained the Ionosphere dataset made by Jamie Leech 
