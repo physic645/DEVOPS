@@ -22,24 +22,25 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset onceee
 
-searchname      = "banknote authentication"
+searchname      = "surgical"
 X,y,input_shape = connect_with_kaggle(searchname)
 
-'''
+
 # If the dataset is larger than 2000 rows keep only 2000
 if len(X) > 2000:
     X = X[:2000]
 
 if len(y) > 2000:
     y = y[:2000]
-'''
+
 
 # if the target variable is in string format convert to 0 or 1    
 if type(y[0]) == str:
     le = LabelEncoder()
     y  = le.fit_transform(y)
 
-
+print(len(X))
+print(input_shape)
 # split into train test sets
 X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
 
@@ -47,7 +48,7 @@ X, X_test, y, y_test = train_test_split(X, y, test_size=0.40)
 
 
 
-# Step 2: Find the first 5 hypermodels for the speficic dataset
+# Step 2: Find hypermodels
 
 start_hyper_time = time.time()
 
@@ -73,7 +74,8 @@ print(f'The hermittes 2nd order appears {i} in {times} times as a proposed activ
 
 
 
-tuner1,best_hps,second_best,third_best,fourth_best,fifth_best = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)    
+
+tuner1,best_hps,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)    
 
 
 
@@ -81,9 +83,9 @@ tuner1,best_hps,second_best,third_best,fourth_best,fifth_best = find_optimal_hyp
 # Print the 5 best models
 print(f'The best        is: {best_hps.values} \n\n')
 print(f'The second best is: {second_best.values} \n\n')
-print(f'The third_best  is: {third_best.values} \n\n')
-print(f'The fourth_best is: {fourth_best.values} \n\n')
-print(f'The fifth_best  is: {fifth_best.values} \n\n')
+#print(f'The third_best  is: {third_best.values} \n\n')
+#print(f'The fourth_best is: {fourth_best.values} \n\n')
+#print(f'The fifth_best  is: {fifth_best.values} \n\n')
 
 
 #print best hyperparamaters with 
@@ -102,7 +104,7 @@ end_hyper_time = time.time()
 
 
 
-# Step 3: Train the 5 hypermodels for 100 epochs and evaluate on test data
+# Step 3: Train hypermodels for 100 epochs and evaluate on test data
 # Connect with NeptuneAI
 
 start_training_time_5_hypermodels = time.time()
@@ -116,20 +118,21 @@ loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,be
 # Train the second_best_model
 loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,second_best,epochs,X,y,X_test,y_test)
 
-# Train the third_best_model
-loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,third_best,epochs,X,y,X_test,y_test)
+# Train the scenario_without_
+loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,scenario_without_pol,epochs,X,y,X_test,y_test)
 
-'''
+
 # Train the fourth_best_model
-loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,fourth_best,epochs,X,y,X_test,y_test)
+# loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,fourth_best,epochs,X,y,X_test,y_test)
 
 # Train the fifth_best_model
-loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,fifth_best,epochs,X,y,X_test,y_test)
-'''
+# loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,fifth_best,epochs,X,y,X_test,y_test)
+
 
 
 end_training_time_5_hypermodels = time.time()
 # --------------------------- end step 3 ----------------------------------
+
 
 '''
 # previous comment line
@@ -188,6 +191,7 @@ print(f'Best model without polynomial is {scenario_without_pol.values}\n')
 #run.stop()
 '''
 
+
 import connect_with_kaggle
 end_program_time   = time.time()
 
@@ -200,10 +204,11 @@ print('\nThe associated times were: \n')
 
 print(f'The total time for hypertuning the {connect_with_kaggle.title} dataset was: {total_hyper_time:.3f} seconds \n')
 
-print(f'The total time for training the {connect_with_kaggle.title} dataset for the 5 best models for {epochs} epochs was: {total_training_time_5_hypermodels:.3f} seconds \n')
+print(f'The total time for training the {connect_with_kaggle.title} dataset for the 3 best models for {epochs} epochs was: {total_training_time_5_hypermodels:.3f} seconds \n')
 
 print(f'The whole process took total {total_program_time:.3f} seconds \n')
 
+import connect_with_kaggle
 print(f'\n We trained the {connect_with_kaggle.title} dataset made by {connect_with_kaggle.creator} \n')
 
 # ----- END OF PROGRAM ----

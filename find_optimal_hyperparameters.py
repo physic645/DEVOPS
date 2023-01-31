@@ -111,11 +111,11 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     # Get the optimal hyperparameters 
     best_hps    = tuner1.get_best_hyperparameters(num_trials = max_trials)[0]
     second_best = tuner1.get_best_hyperparameters(num_trials = max_trials)[1]
-    third_best  = tuner1.get_best_hyperparameters(num_trials = max_trials)[2]
-    fourth_best = tuner1.get_best_hyperparameters(num_trials = max_trials)[3]
-    fifth_best  = tuner1.get_best_hyperparameters(num_trials = max_trials)[4]
+    #third_best  = tuner1.get_best_hyperparameters(num_trials = max_trials)[2]
+    #fourth_best = tuner1.get_best_hyperparameters(num_trials = max_trials)[3]
+    #fifth_best  = tuner1.get_best_hyperparameters(num_trials = max_trials)[4]
     
-    '''
+    
     for i in range(max_trials):
         
         a = tuner1.get_best_hyperparameters(num_trials = max_trials)[i]
@@ -128,7 +128,7 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
             break
         else:
             scenario_without_pol = {} # case where there is no scenario without pol
-    '''
+    
     
     '''
     print(f"""
@@ -164,4 +164,4 @@ def find_optimal_hyperparameters(X,y,input_shape,X_test,y_test):
     #run.stop()
     
     
-    return tuner1,best_hps,second_best,third_best,fourth_best,fifth_best
+    return tuner1,best_hps,second_best,scenario_without_pol
