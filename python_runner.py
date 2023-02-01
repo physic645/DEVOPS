@@ -22,7 +22,7 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset onceee
 
-searchname      = "diabetes"
+searchname      = "surgical"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 
@@ -34,7 +34,7 @@ if len(y) > 2000:
     y = y[:2000]
 
 
-# if the target variable is in string format convert to 0 or 1    
+# if the target variable is in string format convert to 0 or 1
 if type(y[0]) == str:
     le = LabelEncoder()
     y  = le.fit_transform(y)
@@ -58,24 +58,24 @@ start_hyper_time = time.time()
 
 '''
 for i in range(times):
-    
+
     print(f'We are in the {i+1} iteration \n')
-    
+
     t1,best,best_e,snd_best,best_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
     b = best.values
-    
+
     #print(f'best proposed in {i+1} loop the proposed NN is: {b}')
-    
+
     if 'h_2nd' in b.values():
         i = i + 1;
 
-print(f'The hermittes 2nd order appears {i} in {times} times as a proposed activation. \n')        
+print(f'The hermittes 2nd order appears {i} in {times} times as a proposed activation. \n')
 '''
 
 
 
 
-tuner1,best_hps,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)    
+tuner1,best_hps,second_best,scenario_without_pol = find_optimal_hyperparameters(X,y,input_shape,X_test,y_test)
 
 
 
@@ -89,12 +89,12 @@ print(f'The scenario without pol is: {scenario_without_pol.values} \n\n')
 #print(f'The fifth_best  is: {fifth_best.values} \n\n')
 
 
-#print best hyperparamaters with 
-# print(best_hps.get_config())  or 
+#print best hyperparamaters with
+# print(best_hps.get_config())  or
 # tuner.results_summary() --> shows the 10 best trials
 # print(best_hps.values)
 
-# Show the 7 best trials 
+# Show the 7 best trials
 # print(f'\n{tuner1.results_summary(7)}\n')
 
 
@@ -138,7 +138,7 @@ end_training_time_5_hypermodels = time.time()
 '''
 # previous comment line
 # Step 4: Statistics
-    
+
 loss_list_1     = []
 accuracy_list_1 = []
 
@@ -161,7 +161,7 @@ for i in range(100):
 #for i in range(10):
 #    loss, accuracy = train_with_optimal_hyperparameters(tuner1,second_best,best_epoch,X,y,X_test,y_test)
 #    loss_list_2.append(loss)
-#   accuracy_list_2.append(accuracy)    
+#   accuracy_list_2.append(accuracy)
 
 
 # loss and accuracy for a model that does not contain polynomial
@@ -178,7 +178,7 @@ print(f'Statistics for losses: t = {t_stat_loss}, p_value = {p_value_loss}\n')
 
 t_stat_acc, p_value_acc = stats.ttest_rel(accuracy_list_1, accuracy_list_3)
 print(f'Statistics for accuracy t = {t_stat_acc}, p_value = {p_value_acc}\n')
-    
+
 
 # ****************************************************************************
 # ****************************************************************************
