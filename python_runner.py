@@ -83,6 +83,7 @@ tuner1,best_hps,second_best,scenario_without_pol = find_optimal_hyperparameters(
 # Print the 5 best models
 print(f'The best        is: {best_hps.values} \n\n')
 print(f'The second best is: {second_best.values} \n\n')
+print(f'The scenario without pol is: {scenario_without_pol.values} \n\n')
 #print(f'The third_best  is: {third_best.values} \n\n')
 #print(f'The fourth_best is: {fourth_best.values} \n\n')
 #print(f'The fifth_best  is: {fifth_best.values} \n\n')
