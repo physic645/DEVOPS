@@ -22,7 +22,8 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset onceee
 
-searchname      = "Website Phishing Dataset"
+#searchname      = "Website Phishing Dataset"
+searchname       = "diabetes"
 X,y,input_shape = connect_with_kaggle(searchname)
 
 
