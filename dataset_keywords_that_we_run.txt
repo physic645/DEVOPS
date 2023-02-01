@@ -12,6 +12,22 @@ Keywords that we pass in the searchname and we take results
 10.141_phising_website OK
 
 
+Simulations Round 2 VS
+
+surgical ok
+anemia ok
+room occupancy ok
+
+blood transfusion no
+
+banknote authentication ok
+ionosphere ok
+brain tumor ok (hermite loses)
+
+web phising to pass the results
+
+
+
 
 air properties time series ? needs modification
 
