@@ -1,0 +1,18 @@
+The best        is: {'learning_rate': 0.0001, 'layers': 3, 'units_0': 20, 'act_0': 'relu', 'units_1': 10, 'act_1': 'relu', 'units_2': 5, 'act_2': 'tanh'} 
+
+
+The second best is: {'learning_rate': 0.001, 'layers': 4, 'units_0': 25, 'act_0': 'tanh', 'units_1': 20, 'act_1': 'tanh', 'units_2': 20, 'act_2': 'relu', 'units_3': 5, 'act_3': 'relu'} 
+
+
+The scenario without pol is: {'learning_rate': 0.0001, 'layers': 3, 'units_0': 20, 'act_0': 'relu', 'units_1': 10, 'act_1': 'relu', 'units_2': 5, 'act_2': 'tanh'} 
+
+The associated times were: 
+
+The total time for hypertuning the BankNote Authentication UCI dataset was: 3388.920 seconds 
+
+The total time for training the BankNote Authentication UCI dataset for the 3 best models for 100 epochs was: 70.129 seconds 
+
+The whole process took total 3460.373 seconds 
+
+
+ We trained the BankNote Authentication UCI dataset made by Shantanu 

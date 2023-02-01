@@ -1,0 +1,20 @@
+The best        is: {'learning_rate': 0.01, 'layers': 4, 'units_0': 30, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 5, 'act_2': 'h_2nd', 'units_3': 5, 'act_3': 'relu', 'units_4': 20, 'act_4': 'relu'} 
+
+
+The second best is: {'learning_rate': 0.01, 'layers': 4, 'units_0': 30, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 5, 'act_2': 'tanh', 'units_3': 5, 'act_3': 'relu', 'units_4': 20, 'act_4': 'relu'} 
+
+
+The scenario without pol is: {'learning_rate': 0.01, 'layers': 4, 'units_0': 30, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 5, 'act_2': 'tanh', 'units_3': 5, 'act_3': 'relu', 'units_4': 20, 'act_4': 'relu'} 
+
+
+
+The associated times were: 
+
+The total time for hypertuning the Ionosphere dataset was: 2277.096 seconds 
+
+The total time for training the Ionosphere dataset for the 3 best models for 100 epochs was: 37.958 seconds 
+
+The whole process took total 2316.249 seconds 
+
+
+ We trained the Ionosphere dataset made by Jamie Leech 

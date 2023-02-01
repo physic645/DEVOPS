@@ -1,0 +1,18 @@
+The best        is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 5, 'act_0': 'h_2nd', 'units_1': 30, 'act_1': 'relu', 'units_2': 15, 'act_2': 'relu', 'units_3': 30, 'act_3': 'relu', 'units_4': 5, 'act_4': 'h_2nd'} 
+
+
+The second best is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 5, 'act_0': 'h_2nd', 'units_1': 30, 'act_1': 'relu', 'units_2': 25, 'act_2': 'relu', 'units_3': 15, 'act_3': 'relu', 'units_4': 5, 'act_4': 'h_2nd'} 
+
+
+The scenario without pol is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 5, 'act_0': 'tanh', 'units_1': 5, 'act_1': 'relu', 'units_2': 25, 'act_2': 'tanh'} 
+
+The associated times were: 
+
+The total time for hypertuning the Blood Transfusion Dataset dataset was: 2948.869 seconds 
+
+The total time for training the Blood Transfusion Dataset dataset for the 3 best models for 100 epochs was: 51.095 seconds 
+
+The whole process took total 3001.575 seconds 
+
+
+ We trained the Blood Transfusion Dataset dataset made by Aman Chauhan 

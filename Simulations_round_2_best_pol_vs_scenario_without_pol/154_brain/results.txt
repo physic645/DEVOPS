@@ -1,0 +1,18 @@
+The best        is: {'learning_rate': 0.01, 'layers': 5, 'units_0': 30, 'act_0': 'tanh', 'units_1': 30, 'act_1': 'tanh', 'units_2': 30, 'act_2': 'relu', 'units_3': 30, 'act_3': 'tanh', 'units_4': 30, 'act_4': 'h_2nd'} 
+
+
+The second best is: {'learning_rate': 0.01, 'layers': 5, 'units_0': 30, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 30, 'act_2': 'relu', 'units_3': 30, 'act_3': 'relu', 'units_4': 30, 'act_4': 'h_2nd'} 
+
+
+The scenario without pol is: {'learning_rate': 0.01, 'layers': 3, 'units_0': 30, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 30, 'act_2': 'relu', 'units_3': 30, 'act_3': 'relu', 'units_4': 30, 'act_4': 'relu'} 
+
+The associated times were: 
+
+The total time for hypertuning the Brain Tumor dataset was: 1715.814 seconds 
+
+The total time for training the Brain Tumor dataset for the 3 best models for 100 epochs was: 38.415 seconds 
+
+The whole process took total 1755.913 seconds 
+
+
+ We trained the Brain Tumor dataset made by Jillani Soft Tech 

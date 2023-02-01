@@ -1,0 +1,18 @@
+The best        is: {'learning_rate': 0.01, 'layers': 5, 'units_0': 30, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 30, 'act_2': 'h_2nd', 'units_3': 30, 'act_3': 'relu', 'units_4': 25, 'act_4': 'relu'} 
+
+
+The second best is: {'learning_rate': 0.01, 'layers': 5, 'units_0': 30, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 30, 'act_2': 'h_2nd', 'units_3': 30, 'act_3': 'relu', 'units_4': 25, 'act_4': 'relu'} 
+
+
+The scenario without pol is: {'learning_rate': 0.01, 'layers': 5, 'units_0': 30, 'act_0': 'relu', 'units_1': 30, 'act_1': 'relu', 'units_2': 30, 'act_2': 'relu', 'units_3': 20, 'act_3': 'relu', 'units_4': 20, 'act_4': 'relu'} 
+
+The associated times were: 
+
+The total time for hypertuning the Dataset Surgical binary classification dataset was: 4462.859 seconds 
+
+The total time for training the Dataset Surgical binary classification dataset for the 3 best models for 100 epochs was: 110.596 seconds 
+
+The whole process took total 4575.046 seconds 
+
+
+ We trained the Dataset Surgical binary classification dataset made by Doctor M 
