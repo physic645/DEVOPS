@@ -14,17 +14,16 @@ Keywords that we pass in the searchname and we take results
 
 Simulations Round 2 VS
 
-surgical ok
-anemia ok
-room occupancy ok
-
-blood transfusion no
-
-banknote authentication ok
-ionosphere ok
-brain tumor ok (hermite loses)
-
-web phising to pass the results
+1. 129_diabetes OK
+2. 122_surgical OK
+3. 118_lungs (anemia) OK
+4. 133_heart attack   no
+5. 130_Room Occupancy let's say OK
+6. 134_blood transfusion no
+7. 136_banknote authentication OK
+8. 137_ionosphere JAMIE LEECH let's say OK
+9. 140_brain seems OK
+10.141_phising_website OK
 
 
 
