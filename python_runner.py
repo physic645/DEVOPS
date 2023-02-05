@@ -22,7 +22,7 @@ start_program_time = time.time()
 
 # Step 1: Connect_with_kaggle and download the working dataset onceee
 
-#searchname      = "Website Phishing Dataset"
+#searchname      = "diabetes"
 searchname       = "heart attack"
 X,y,input_shape = connect_with_kaggle(searchname)
 
@@ -117,8 +117,10 @@ epochs = 100
 # Train the best model
 loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,best_hps,epochs,X,y,X_test,y_test)
 
+'''
 # Train the second_best_model
 loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,second_best,epochs,X,y,X_test,y_test)
+'''
 
 # Train the scenario_without_
 loss_best, accuracy_best               = train_and_evaluate_hypermodel(tuner1,scenario_without_pol,epochs,X,y,X_test,y_test)
